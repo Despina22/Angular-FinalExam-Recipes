@@ -1,0 +1,26 @@
+.navigation {
+  background-color: #f2e8cf;
+  height: 85px;
+  box-shadow: 0px 10px 20px rgb(204, 197, 185, 0.8);
+
+  .logo-img {
+    margin: 10px 30px;
+    width: 330px;
+  }
+
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+
+  .navigation-link {
+    color: #bc4749;
+    margin: 15px 25px 0px;
+  }
+
+  .navigation-link:hover {
+    background-color: rgb(188, 71, 73);
+    color: #f2e8cf;
+    padding: 5px 10px;
+    border-radius: 3px;
+  }
+}

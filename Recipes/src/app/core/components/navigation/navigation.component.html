@@ -1,0 +1,11 @@
+<mat-toolbar class="navigation">
+  <img src="../../../../assets/images/food.png" alt="logo" class="logo-img" />
+
+  <span class="example-spacer"></span>
+
+  <ng-container *ngFor="let navigationLink of navigationLinks">
+    <a class="navigtion-link" class="navigation-link">{{
+      navigationLink.linkName
+    }}</a>
+  </ng-container>
+</mat-toolbar>
