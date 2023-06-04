@@ -9,9 +9,9 @@ import { NavigationLink } from '../../models/navigation-link.interface';
 export class NavigationComponent implements OnInit {
   navigationLinks: NavigationLink[] = [
     { id: 1, linkName: 'Home' },
-    { id: 1, linkName: 'Admin' },
-    { id: 1, linkName: 'Login' },
-    { id: 1, linkName: 'Logout' },
+    { id: 2, linkName: 'Admin' },
+    { id: 3, linkName: 'Login' },
+    { id: 4, linkName: 'Logout' },
   ];
 
   constructor() {}
