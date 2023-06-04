@@ -1,0 +1,23 @@
+:host {
+  display: flex;
+  justify-content: center;
+  margin: 40px;
+
+  ::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+    background-color: #f2e8cf;
+  }
+  .search-form-field {
+    width: 450px;
+
+    .search-label {
+      color: #bc4749;
+      font-weight: 500;
+    }
+
+    .search-btn {
+      background-color: transparent;
+      border: transparent;
+      font-size: 18px;
+    }
+  }
+}
