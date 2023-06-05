@@ -1,9 +1,15 @@
-<mat-card class="recipe-card" *ngFor="let recipe of recipes">
+<mat-card
+  class="recipe-card"
+  *ngFor="let recipe of recipes"
+  [appDurationColor]="recipe.duration"
+>
   <mat-card-header class="recipe-card-header">
     <mat-card-title class="recipe-card-title">{{ recipe.name }}</mat-card-title>
   </mat-card-header>
 
-  <img [src]="recipe.image" [alt]="recipe.name" class="recipe-img" />
+  <a [href]="recipe.youTubeLink">
+    <img [src]="recipe.image" [alt]="recipe.name" class="recipe-img" />
+  </a>
 
   <mat-card-content>
     <p>
@@ -11,6 +17,8 @@
     </p>
     <app-star-rating [rating]="recipe.stars"></app-star-rating>
     <p>Duration: {{ recipe.duration }}min</p>
-    <p>Created at: {{ recipe.createdDate }}</p>
+    <p>
+      Created at: {{ recipe.createdDate | date : "EEEE, MMMM d, y, h:mm:ss a" }}
+    </p>
   </mat-card-content>
 </mat-card>

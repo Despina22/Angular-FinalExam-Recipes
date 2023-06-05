@@ -6,5 +6,5 @@ export interface Recipe {
   stars: number;
   duration: number;
   createdDate: string;
-  youtubeLink: string;
+  youTubeLink: string;
 }

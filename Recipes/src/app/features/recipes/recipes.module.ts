@@ -7,9 +7,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { RecipesComponent } from './components/recipes/recipes.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { DurationColorDirective } from './directives/duration-color.directive';
 
 @NgModule({
-  declarations: [RecipeCardComponent, RecipesComponent],
+  declarations: [RecipeCardComponent, RecipesComponent, DurationColorDirective],
   imports: [
     CommonModule,
     RecipesRoutingModule,
