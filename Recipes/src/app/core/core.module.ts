@@ -4,10 +4,11 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
-  declarations: [NavigationComponent, HeaderComponent],
+  declarations: [NavigationComponent, HeaderComponent, FooterComponent],
   imports: [CommonModule, MatToolbarModule, MatIconModule],
-  exports: [NavigationComponent, HeaderComponent],
+  exports: [NavigationComponent, HeaderComponent, FooterComponent],
 })
 export class CoreModule {}

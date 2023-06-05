@@ -1,0 +1,24 @@
+.wrapper {
+  background-color: #f2e8cf;
+  display: flex;
+  justify-content: center;
+  padding: 25px 0px;
+  border-top: 2px solid #bc4749;
+
+  .footer {
+    font-size: 30px;
+    color: #386641;
+    font-weight: 500;
+    margin: 0px 25px;
+  }
+
+  .footer-btn {
+    background-color: #386641;
+    color: #f2e8cf;
+    border: 1px solid #bc4749;
+    padding: 7px 10px;
+    border-radius: 3px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+}
