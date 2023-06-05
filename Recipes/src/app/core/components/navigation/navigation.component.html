@@ -4,8 +4,11 @@
   <span class="example-spacer"></span>
 
   <ng-container *ngFor="let navigationLink of navigationLinks">
-    <a class="navigtion-link" class="navigation-link">{{
-      navigationLink.linkName
-    }}</a>
+    <a
+      class="navigtion-link"
+      class="navigation-link"
+      (click)="navigation(navigationLink)"
+      >{{ navigationLink.linkName }}</a
+    >
   </ng-container>
 </mat-toolbar>

@@ -1,0 +1,30 @@
+.table-wrapper {
+  width: 90vw;
+  margin: 40px auto;
+
+  .table-button-container {
+    padding-bottom: 20px;
+
+    .button {
+      font-size: 20px;
+      padding: 7px 10px;
+      background-color: #386641;
+      color: #f2e8cf;
+      border-radius: 3px;
+      border: 2px solid #bc4749;
+
+      &:hover {
+        background-color: #bc4749;
+      }
+    }
+  }
+
+  .recipe-table {
+    width: 100%;
+    background-color: #f2e8cf;
+
+    .recipe-header {
+      color: #bc4749;
+    }
+  }
+}

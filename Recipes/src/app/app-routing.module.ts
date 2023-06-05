@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
@@ -9,6 +8,13 @@ const routes: Routes = [
     loadChildren: () =>
       import('../app/features/recipes/recipes.module').then(
         (module) => module.RecipesModule
+      ),
+  },
+  {
+    path: 'admin',
+    loadChildren: () =>
+      import('../app/features/admin/admin.module').then(
+        (module) => module.AdminModule
       ),
   },
 ];

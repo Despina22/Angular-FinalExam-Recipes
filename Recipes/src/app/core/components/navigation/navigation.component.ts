@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationLink } from '../../models/navigation-link.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navigation',
@@ -14,7 +15,15 @@ export class NavigationComponent implements OnInit {
     { id: 4, linkName: 'Logout' },
   ];
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
+
+  navigation(navigationLink: NavigationLink) {
+    if (navigationLink.linkName === 'Home') {
+      this.router.navigate(['/']);
+    } else if (navigationLink.linkName === 'Admin') {
+      this.router.navigate(['admin/recipes']);
+    }
+  }
 }
