@@ -9,7 +9,7 @@ import {
   Subject,
   takeUntil,
 } from 'rxjs';
-import { SearchService } from 'src/app/shared/components/services/search-service/search.service';
+import { SearchService } from 'src/app/shared/services/search-service/search.service';
 
 @Component({
   selector: 'app-recipe-card',
