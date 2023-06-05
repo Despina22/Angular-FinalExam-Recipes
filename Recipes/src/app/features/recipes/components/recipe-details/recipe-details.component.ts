@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { take } from 'rxjs';
+import { Observable, take } from 'rxjs';
 import { RecipesService } from 'src/app/features/services/recipe/recipes.service';
 import { Recipe } from '../../models/recipe.interface';
 
@@ -10,7 +10,7 @@ import { Recipe } from '../../models/recipe.interface';
   styleUrls: ['./recipe-details.component.scss'],
 })
 export class RecipeDetailsComponent implements OnInit {
-  recipe?: Recipe;
+  recipe$?: Observable<Recipe>;
   private recipeId!: number;
 
   constructor(
@@ -24,11 +24,6 @@ export class RecipeDetailsComponent implements OnInit {
   }
 
   getRecipeDetails() {
-    this.recipesService
-      .getRecipeById(this.recipeId)
-      .pipe(take(1))
-      .subscribe((data) => {
-        this.recipe = data;
-      });
+    this.recipe$ = this.recipesService.getRecipeById(this.recipeId);
   }
 }

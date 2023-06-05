@@ -1,4 +1,4 @@
-<div class="wrapper" *ngIf="recipe">
+<div class="wrapper" *ngIf="recipe$ | async as recipe; else recipeNotFound">
   <mat-card class="recipe-card">
     <mat-card-header class="recipe-card-header">
       <mat-card-title class="recipe-card-title"
@@ -24,12 +24,14 @@
       </div>
     </mat-card-content>
   </mat-card>
-  <div class="recipe-btn-wrapper">
-    <button class="back-btn" routerLink="/recipes">Go Back</button>
-  </div>
+</div>
+<div class="recipe-btn-wrapper">
+  <button class="back-btn" routerLink="/recipes">Go Back</button>
 </div>
 
-<div class="error-wrapper" *ngIf="!recipe">
-  <mat-icon>warning</mat-icon>
-  <p>Recipe is not found!!!</p>
-</div>
+<ng-template #recipeNotFound>
+  <div class="error-wrapper">
+    <mat-icon class="error-icon">warning</mat-icon>
+    <p>Recipe is not found!!!</p>
+  </div>
+</ng-template>
