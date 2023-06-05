@@ -1,0 +1,48 @@
+<div mat-dialog-container class="form-modal">
+  <h2 mat-dialog-title class="modal-title">{{ data.title }}</h2>
+  <form [formGroup]="recipeForm" (ngSubmit)="onCreate()">
+    <div mat-dialog-content class="form-modal-content">
+      <div>
+        <mat-form-field appearance="fill" class="form-input">
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name" />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="form-input">
+          <mat-label>Image</mat-label>
+          <input matInput formControlName="image" />
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field appearance="fill" class="form-input">
+          <mat-label>Video Url</mat-label>
+          <input matInput formControlName="videoUrl" />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="form-input">
+          <mat-label>Description</mat-label>
+          <textarea matInput formControlName="description"></textarea>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field appearance="fill" class="form-input">
+          <mat-label>Duration</mat-label>
+          <input matInput formControlName="duration" />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="form-input">
+          <mat-label>Stars</mat-label>
+          <input matInput formControlName="stars" />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div mat-dialog-actions class="modal-actions">
+      <button mat-button mat-dialog-close type="submit" class="modal-btn">
+        {{ data.button }}
+      </button>
+    </div>
+  </form>
+</div>
