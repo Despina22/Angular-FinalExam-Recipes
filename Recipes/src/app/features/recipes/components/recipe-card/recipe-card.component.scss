@@ -1,0 +1,28 @@
+:host {
+  display: flex;
+  justify-content: space-between;
+
+  .recipe-card {
+    max-width: 380px;
+    background-color: #f2e8cf;
+    color: #111d13;
+    box-shadow: 15px 15px 10px rgb(204, 197, 185, 0.8);
+    margin-bottom: 20px;
+
+    .recipe-card-header {
+      display: flex;
+      justify-content: center;
+      margin: 10px;
+      border-bottom: 2px solid #bc4749;
+
+      .recipe-card-title {
+        font-size: 25px;
+      }
+    }
+
+    .recipe-img {
+      max-width: 350px;
+      max-height: 300px;
+    }
+  }
+}

@@ -4,10 +4,11 @@ import { SearchComponent } from './components/search/search.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { StarRatingComponent } from './components/star-rating/star-rating.component';
 
 @NgModule({
-  declarations: [SearchComponent],
+  declarations: [SearchComponent, StarRatingComponent],
   imports: [CommonModule, MatFormFieldModule, MatIconModule, MatInputModule],
-  exports: [SearchComponent],
+  exports: [SearchComponent, StarRatingComponent],
 })
 export class SharedModule {}

@@ -1,0 +1,31 @@
+{
+  "recipes": [
+    {
+      "id": 1,
+      "name": "easy honey garlic chicken",
+      "image": "https://static.onecms.io/wp-content/uploads/sites/43/2023/01/31/44868-spicy-garlic-lime-chicken-ddmfs-Step-3X4-0264.jpg",
+      "description": "With a recipe that includes both chicken thighs AND chicken breasts, you’re just minutes away from the most addictive Honey Garlic Chicken dinner the whole family loves! The perfect meal to have when you feel like eating something sweet with a hint of savoury.",
+      "stars": 3,
+      "duration": 35,
+      "createdDate": "2023-07-12 10:15:20"
+    },
+    {
+      "id": 2,
+      "name": "garlic chicken",
+      "image": "https://static.onecms.io/wp-content/uploads/sites/43/2023/01/31/44868-spicy-garlic-lime-chicken-ddmfs-Step-3X4-0264.jpg",
+      "description": "With a recipe that includes both chicken thighs AND chicken breasts, you’re just minutes away from the most addictive Honey Garlic Chicken dinner the whole family loves! The perfect meal to have when you feel like eating something sweet with a hint of savoury.",
+      "stars": 5,
+      "duration": 35,
+      "createdDate": "2023-07-12 10:15:20"
+    },
+    {
+      "id": 3,
+      "name": "honey chicken",
+      "image": "https://static.onecms.io/wp-content/uploads/sites/43/2023/01/31/44868-spicy-garlic-lime-chicken-ddmfs-Step-3X4-0264.jpg",
+      "description": "With a recipe that includes both chicken thighs AND chicken breasts, you’re just minutes away from the most addictive Honey Garlic Chicken dinner the whole family loves! The perfect meal to have when you feel like eating something sweet with a hint of savoury.",
+      "stars": 1,
+      "duration": 45,
+      "createdDate": "2023-07-12 10:15:20"
+    }
+  ]
+}
