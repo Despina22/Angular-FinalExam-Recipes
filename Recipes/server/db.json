@@ -2,57 +2,33 @@
   "recipes": [
     {
       "id": 1,
-      "name": "easy honey garlic chicken",
-      "image": "https://static.onecms.io/wp-content/uploads/sites/43/2023/01/31/44868-spicy-garlic-lime-chicken-ddmfs-Step-3X4-0264.jpg",
-      "description": "With a recipe that includes both chicken thighs AND chicken breasts, you’re just minutes away from the most addictive Honey Garlic Chicken dinner the whole family loves! The perfect meal to have when you feel like eating something sweet with a hint of savoury.",
-      "stars": 3,
-      "duration": 35,
-      "createdDate": "2023-07-12 10:15:20"
+      "name": "Chicken Breast Dinner",
+      "image": "https://img.taste.com.au/nVMABRgV/taste/2019/05/one-pot-italian-chicken-150024-1.jpg",
+      "description": "Quick and Easy Chicken Breast Dinner!  Healthy and delicious chicken breast recipeEasy to prepare and incredibly delicious dinner will appeal to your whole family delicious recipe will be your favorite recipe. You can cook it for both guests and family meals. Everyone will like this my husband's favorite food! Cook with pleasure! Cook with love!",
+      "stars": 4,
+      "duration": 45,
+      "createdDate": "2023-06-01T19:26:05.238Z",
+      "youTubeLink": "https://www.youtube.com/watch?v=J4Tym5DoyjQ"
     },
     {
       "id": 2,
-      "name": "garlic chicken",
-      "image": "https://static.onecms.io/wp-content/uploads/sites/43/2023/01/31/44868-spicy-garlic-lime-chicken-ddmfs-Step-3X4-0264.jpg",
-      "description": "With a recipe that includes both chicken thighs AND chicken breasts, you’re just minutes away from the most addictive Honey Garlic Chicken dinner the whole family loves! The perfect meal to have when you feel like eating something sweet with a hint of savoury.",
+      "name": "Spaghetti Bolognese",
+      "image": "https://supervalu.ie/thumbnail/800x600/var/files/real-food/recipes/Uploaded-2020/spaghetti-bolognese-recipe.jpg",
+      "description": "My Spaghetti Bolognese recipe is quick and easy but super delicious. Its my go-to for a rich and satisfying weeknight dinner. This Spaghetti Bolognese recipe only takes 30 minutes from start to finish. Simple ingredients, without skimping on taste.",
       "stars": 5,
-      "duration": 35,
-      "createdDate": "2023-07-12 10:15:20"
+      "duration": 30,
+      "createdDate": "2023-06-12T14:36:05.238Z",
+      "youTubeLink": "https://www.youtube.com/watch?v=v2WqcHH65NQ"
     },
     {
       "id": 3,
-      "name": "honey chicken",
-      "image": "https://static.onecms.io/wp-content/uploads/sites/43/2023/01/31/44868-spicy-garlic-lime-chicken-ddmfs-Step-3X4-0264.jpg",
-      "description": "With a recipe that includes both chicken thighs AND chicken breasts, you’re just minutes away from the most addictive Honey Garlic Chicken dinner the whole family loves! The perfect meal to have when you feel like eating something sweet with a hint of savoury.",
-      "stars": 1,
-      "duration": 45,
-      "createdDate": "2023-07-12 10:15:20"
-    },
-    {
-      "id": 3,
-      "name": "honey chicken",
-      "image": "https://static.onecms.io/wp-content/uploads/sites/43/2023/01/31/44868-spicy-garlic-lime-chicken-ddmfs-Step-3X4-0264.jpg",
-      "description": "With a recipe that includes both chicken thighs AND chicken breasts, you’re just minutes away from the most addictive Honey Garlic Chicken dinner the whole family loves! The perfect meal to have when you feel like eating something sweet with a hint of savoury.",
-      "stars": 1,
-      "duration": 45,
-      "createdDate": "2023-07-12 10:15:20"
-    },
-    {
-      "id": 3,
-      "name": "honey chicken",
-      "image": "https://static.onecms.io/wp-content/uploads/sites/43/2023/01/31/44868-spicy-garlic-lime-chicken-ddmfs-Step-3X4-0264.jpg",
-      "description": "With a recipe that includes both chicken thighs AND chicken breasts, you’re just minutes away from the most addictive Honey Garlic Chicken dinner the whole family loves! The perfect meal to have when you feel like eating something sweet with a hint of savoury.",
-      "stars": 1,
-      "duration": 45,
-      "createdDate": "2023-07-12 10:15:20"
-    },
-    {
-      "id": 3,
-      "name": "honey chicken",
-      "image": "https://static.onecms.io/wp-content/uploads/sites/43/2023/01/31/44868-spicy-garlic-lime-chicken-ddmfs-Step-3X4-0264.jpg",
-      "description": "With a recipe that includes both chicken thighs AND chicken breasts, you’re just minutes away from the most addictive Honey Garlic Chicken dinner the whole family loves! The perfect meal to have when you feel like eating something sweet with a hint of savoury.",
-      "stars": 1,
-      "duration": 45,
-      "createdDate": "2023-07-12 10:15:20"
+      "name": "Cannelloni with minced meat ",
+      "image": "https://cms-b-assets.familysearch.org/dims4/default/e2b82a6/2147483647/strip/true/crop/800x500+0+0/resize/1240x775!/quality/90/?url=https%3A%2F%2Ffamilysearch-brightspot.s3.amazonaws.com%2Ff7%2F40%2F437d6baf4c43828f0361ffe267ba%2Fmicrosoftteams-image-39.png",
+      "description": "Cannelloni with minced meat is ready in a short time. The combination of minced meat, béchamel sauce, cheese and cannelloni baked in the oven creates a delicious dish. In original recipes, parmesan cheese is used but you can use your favorite cheese and add also your favorite spices like chili flakes and no salt and nutmeg powder in béchamel sauce. Create your own healthy oven-baked cannelloni recipe.",
+      "stars": 4.5,
+      "duration": 40,
+      "createdDate": "2023-06-02T14:36:05.238Z",
+      "youTubeLink": "https://www.youtube.com/watch?v=YPg32bnKxko"
     }
   ]
 }
