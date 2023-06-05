@@ -7,7 +7,7 @@
 
   <mat-card-content>
     <p>
-      {{ recipe.description | slice : 0 : 100 }}
+      {{ recipe.description | truncate : 100 }}
     </p>
     <app-star-rating [rating]="recipe.stars"></app-star-rating>
     <p>Duration: {{ recipe.duration }}min</p>
