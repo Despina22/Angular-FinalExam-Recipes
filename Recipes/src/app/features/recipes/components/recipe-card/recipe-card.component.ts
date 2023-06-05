@@ -1,7 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Recipe } from '../../models/recipe.interface';
 import { RecipesService } from 'src/app/features/services/recipe/recipes.service';
-import { debounceTime, switchMap, take, distinctUntilChanged } from 'rxjs';
+import {
+  debounceTime,
+  switchMap,
+  take,
+  distinctUntilChanged,
+  Subject,
+  takeUntil,
+} from 'rxjs';
 import { SearchService } from 'src/app/shared/components/services/search-service/search.service';
 
 @Component({
@@ -9,8 +16,10 @@ import { SearchService } from 'src/app/shared/components/services/search-service
   templateUrl: './recipe-card.component.html',
   styleUrls: ['./recipe-card.component.scss'],
 })
-export class RecipeCardComponent implements OnInit {
+export class RecipeCardComponent implements OnInit, OnDestroy {
   recipes?: Recipe[];
+
+  private unsubscribe$: Subject<void> = new Subject<void>();
 
   constructor(
     private recipesService: RecipesService,
@@ -35,6 +44,7 @@ export class RecipeCardComponent implements OnInit {
     this.searchService.searchValue$
       .asObservable()
       .pipe(
+        takeUntil(this.unsubscribe$),
         debounceTime(3500),
         distinctUntilChanged(),
         switchMap((term) => this.searchService.searchRecipe(term))
@@ -42,5 +52,10 @@ export class RecipeCardComponent implements OnInit {
       .subscribe((data) => {
         this.recipes = data;
       });
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 }
