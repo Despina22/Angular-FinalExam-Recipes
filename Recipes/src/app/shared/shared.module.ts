@@ -12,6 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CheckFormValidityPipe } from './pipes/check-form-validity/check-form-validity.pipe';
 import { SnackbarComponent } from './components/snackbar/snackbar.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     TruncatePipe,
     CheckFormValidityPipe,
     SnackbarComponent,
+    ConfirmDialogComponent,
   ],
   imports: [
     CommonModule,
@@ -30,6 +32,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatDialogModule,
     ReactiveFormsModule,
     MatSnackBarModule,
+    MatDialogModule,
   ],
   exports: [
     SearchComponent,

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { take } from 'rxjs';
+import { map, take } from 'rxjs';
 import { Recipe } from 'src/app/features/recipes/models/recipe.interface';
 import { RecipesService } from 'src/app/features/services/recipe/recipes.service';
+import { ConfirmDialogComponent } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
 import { FormModalComponent } from 'src/app/shared/components/form-modal/form-modal.component';
 
 @Component({
@@ -20,7 +21,7 @@ export class RecipeTableComponent implements OnInit {
     'edit',
     'delete',
   ];
-  dataSource?: Recipe[];
+  dataSource!: Recipe[];
 
   constructor(
     private recipeService: RecipesService,
@@ -50,5 +51,33 @@ export class RecipeTableComponent implements OnInit {
 
   onEdit() {
     console.log('yay  ediitt');
+  }
+
+  deleteRecipe(recipe: Recipe) {
+    const confirmDialog = this.modal.open(ConfirmDialogComponent, {
+      data: {
+        title: 'Confirm',
+        message: 'Are you sure you want to delete this item?',
+      },
+      position: { top: '40px' },
+    });
+
+    confirmDialog.afterClosed().subscribe((result) => {
+      if (result) {
+        this.recipeService
+          .deleteRecipe(recipe)
+          .pipe(take(1))
+          .subscribe(
+            () => {
+              this.dataSource = this.dataSource.filter(
+                (item: any) => item.id !== recipe.id
+              );
+            },
+            (error) => {
+              console.error('Error deleting recipe:', error);
+            }
+          );
+      }
+    });
   }
 }
