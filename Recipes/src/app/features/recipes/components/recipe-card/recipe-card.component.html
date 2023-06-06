@@ -5,7 +5,7 @@
 >
   <mat-card-header
     class="recipe-card-header"
-    routerLink="recipe/{{ recipe.id }}"
+    [routerLink]="['recipe', recipe.id]"
   >
     <mat-card-title class="recipe-card-title">{{ recipe.name }}</mat-card-title>
   </mat-card-header>

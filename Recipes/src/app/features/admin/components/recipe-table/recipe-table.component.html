@@ -40,7 +40,7 @@
         </td>
       </ng-container>
 
-      <ng-container matColumnDef="youtubeLink">
+      <ng-container matColumnDef="youTubeLink">
         <th mat-header-cell *matHeaderCellDef class="recipe-table-item">
           Youtube Link
         </th>
@@ -63,7 +63,7 @@
           Edit
         </th>
         <td *matCellDef="let recipe" class="recipe-table-item">
-          <mat-icon (click)="onEdit()">edit</mat-icon>
+          <mat-icon [routerLink]="['recipe', recipe.id, 'edit']">edit</mat-icon>
         </td>
       </ng-container>
 

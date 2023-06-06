@@ -16,7 +16,7 @@ export class RecipeTableComponent implements OnInit {
     'rowIndex',
     'name',
     'stars',
-    'youtubeLink',
+    'youTubeLink',
     'dateCreated',
     'edit',
     'delete',

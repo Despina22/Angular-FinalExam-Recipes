@@ -23,7 +23,7 @@ export class NavigationComponent implements OnInit {
     if (navigationLink.linkName === 'Home') {
       this.router.navigate(['/']);
     } else if (navigationLink.linkName === 'Admin') {
-      this.router.navigate(['admin/recipes']);
+      this.router.navigate(['admin']);
     }
   }
 }
