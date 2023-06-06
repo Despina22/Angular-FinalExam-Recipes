@@ -57,7 +57,7 @@
       <ng-container matColumnDef="edit">
         <th mat-header-cell *matHeaderCellDef class="recipe-header">Edit</th>
         <td *matCellDef class="id-container" class="recipe-header">
-          <mat-icon>edit</mat-icon>
+          <mat-icon (click)="onEdit()">edit</mat-icon>
         </td>
       </ng-container>
 

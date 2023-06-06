@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,6 +20,7 @@ import { CoreModule } from './core/core.module';
     HttpClientModule,
     RouterModule,
     AppRoutingModule,
+    MatSnackBarModule,
   ],
 })
 export class AppModule {}

@@ -126,7 +126,8 @@
         mat-button
         type="submit"
         class="modal-btn"
-        [disabled]="!recipeForm"
+        [mat-dialog-close]="closeDialog"
+        [disabled]="!recipeForm.valid"
       >
         {{ data.button }}
       </button>

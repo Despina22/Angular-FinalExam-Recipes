@@ -1,22 +1,29 @@
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Subject } from 'rxjs';
 import { SnackbarComponent } from '../../components/snackbar/snackbar.component';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SnackbarMessageService {
-  private durationInSeconds: number = 5;
+  private snackbarMessageSubject$ = new Subject<string | null>();
 
-  constructor(private _snackBar: MatSnackBar) {}
+  constructor(private snackBar: MatSnackBar) {}
 
-  openSnackBar(message: string, stateClass: string) {
-    this._snackBar.openFromComponent(SnackbarComponent, {
+  showMessage(message: string, stateClass: string): void {
+    const snackBarRef = this.snackBar.openFromComponent(SnackbarComponent, {
       data: { message: message },
-      duration: this.durationInSeconds * 1000,
       horizontalPosition: 'center',
       verticalPosition: 'top',
       panelClass: [stateClass],
+      duration: 3000,
     });
+
+    snackBarRef.afterDismissed().subscribe(() => {
+      this.snackbarMessageSubject$.next(null);
+    });
+
+    this.snackbarMessageSubject$.next(message);
   }
 }

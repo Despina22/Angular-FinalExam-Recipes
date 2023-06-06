@@ -11,6 +11,8 @@ import { SnackbarMessageService } from '../../services/snackbar-message-service/
   styleUrls: ['./form-modal.component.scss'],
 })
 export class FormModalComponent implements OnInit {
+  closeDialog: boolean = false;
+
   recipeForm: FormGroup = new FormGroup({
     name: new FormControl('', [
       Validators.required,
@@ -50,7 +52,16 @@ export class FormModalComponent implements OnInit {
       createdDate: new Date().toISOString(),
     };
 
-    this.recipesService.createRecipe(recipe).pipe(take(1)).subscribe();
-    console.log(recipe);
+    if (!this.recipeForm.valid) return;
+    this.recipesService
+      .createRecipe(recipe)
+      .pipe(take(1))
+      .subscribe(() => {
+        this.snackbarMessageService.showMessage(
+          'Successfully created recipe!!',
+          'snack-bar-success-container'
+        );
+        this.closeDialog = true;
+      });
   }
 }

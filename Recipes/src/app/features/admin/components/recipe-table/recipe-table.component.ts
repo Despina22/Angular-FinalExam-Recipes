@@ -47,4 +47,8 @@ export class RecipeTableComponent implements OnInit {
       position: { top: '40px' },
     });
   }
+
+  onEdit() {
+    console.log('yay  ediitt');
+  }
 }
