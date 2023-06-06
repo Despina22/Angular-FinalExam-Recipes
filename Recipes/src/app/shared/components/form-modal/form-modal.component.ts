@@ -1,6 +1,9 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { take } from 'rxjs';
+import { RecipesService } from 'src/app/features/services/recipe/recipes.service';
+import { SnackbarMessageService } from '../../services/snackbar-message-service/snackbar-message.service';
 
 @Component({
   selector: 'app-form-modal',
@@ -11,7 +14,7 @@ export class FormModalComponent implements OnInit {
   recipeForm: FormGroup = new FormGroup({
     name: new FormControl('', [
       Validators.required,
-      Validators.pattern('^[A-Z][a-zA-Z0-9]*$'),
+      Validators.pattern(/^[A-Z][A-Za-z0-9\s]*$/),
       Validators.maxLength(55),
     ]),
     image: new FormControl('', [
@@ -20,7 +23,7 @@ export class FormModalComponent implements OnInit {
     ]),
     videoUrl: new FormControl('', [
       Validators.required,
-      Validators.pattern('^https?://.*$'),
+      Validators.pattern(/^https?:\/\/(?:www\.)?youtube\.com\/.*$/),
     ]),
     description: new FormControl('', Validators.required),
     duration: new FormControl('', [
@@ -34,7 +37,9 @@ export class FormModalComponent implements OnInit {
   });
 
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: { title: string; button: string }
+    @Inject(MAT_DIALOG_DATA) public data: { title: string; button: string },
+    private recipesService: RecipesService,
+    private snackbarMessageService: SnackbarMessageService
   ) {}
 
   ngOnInit(): void {}
@@ -44,6 +49,8 @@ export class FormModalComponent implements OnInit {
       ...this.recipeForm.value,
       createdDate: new Date().toISOString(),
     };
+
+    this.recipesService.createRecipe(recipe).pipe(take(1)).subscribe();
     console.log(recipe);
   }
 }

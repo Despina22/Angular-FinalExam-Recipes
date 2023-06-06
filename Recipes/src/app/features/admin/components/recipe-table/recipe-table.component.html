@@ -1,6 +1,8 @@
 <div class="table-wrapper">
   <div class="table-button-container">
-    <button mat-raised-button class="button" (click)="openModal()">Create Recipe</button>
+    <button mat-raised-button class="button" (click)="openModal()">
+      Create Recipe
+    </button>
   </div>
 
   <ng-container *ngIf="dataSource">
@@ -11,8 +13,12 @@
     >
       <ng-container matColumnDef="rowIndex">
         <th mat-header-cell *matHeaderCellDef class="recipe-header">No.</th>
-        <td mat-cell *matCellDef="let recipe" class="recipe-header">
-          {{ recipe.id }}
+        <td
+          mat-cell
+          *matCellDef="let recipe; let i = index"
+          class="recipe-header"
+        >
+          {{ i + 1 }}
         </td>
       </ng-container>
 
