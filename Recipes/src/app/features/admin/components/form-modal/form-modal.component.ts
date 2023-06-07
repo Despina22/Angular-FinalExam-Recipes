@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { take } from 'rxjs';
 import { RecipesService } from 'src/app/features/services/recipe/recipes.service';
-import { SnackbarMessageService } from '../../services/snackbar-message-service/snackbar-message.service';
+import { SnackbarMessageService } from 'src/app/shared/services/snackbar-message-service/snackbar-message.service';
 
 @Component({
   selector: 'app-form-modal',

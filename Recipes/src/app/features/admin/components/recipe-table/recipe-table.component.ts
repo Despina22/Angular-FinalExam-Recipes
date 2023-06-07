@@ -4,7 +4,7 @@ import { map, take } from 'rxjs';
 import { Recipe } from 'src/app/features/recipes/models/recipe.interface';
 import { RecipesService } from 'src/app/features/services/recipe/recipes.service';
 import { ConfirmDialogComponent } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
-import { FormModalComponent } from 'src/app/shared/components/form-modal/form-modal.component';
+import { FormModalComponent } from 'src/app/features/admin/components/form-modal/form-modal.component';
 
 @Component({
   selector: 'app-recipe-table',

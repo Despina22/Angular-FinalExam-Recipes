@@ -6,7 +6,7 @@ import { MatInputModule } from '@angular/material/input';
 import { SearchComponent } from './components/search/search.component';
 import { StarRatingComponent } from './components/star-rating/star-rating.component';
 import { TruncatePipe } from './pipes/truncate/truncate.pipe';
-import { FormModalComponent } from './components/form-modal/form-modal.component';
+import { FormModalComponent } from '../features/admin/components/form-modal/form-modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CheckFormValidityPipe } from './pipes/check-form-validity/check-form-validity.pipe';
