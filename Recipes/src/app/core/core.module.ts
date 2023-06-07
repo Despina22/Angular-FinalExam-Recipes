@@ -5,10 +5,19 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { LayoutRecipesComponent } from './layouts/components/layout-recipes/layout-recipes.component';
+import { RouterModule } from '@angular/router';
+import { LayoutAuthenticationComponent } from './layouts/components/layout-authentication/layout-authentication.component';
 
 @NgModule({
-  declarations: [NavigationComponent, HeaderComponent, FooterComponent],
-  imports: [CommonModule, MatToolbarModule, MatIconModule],
+  declarations: [
+    NavigationComponent,
+    HeaderComponent,
+    FooterComponent,
+    LayoutRecipesComponent,
+    LayoutAuthenticationComponent,
+  ],
+  imports: [CommonModule, MatToolbarModule, MatIconModule, RouterModule],
   exports: [NavigationComponent, HeaderComponent, FooterComponent],
 })
 export class CoreModule {}
