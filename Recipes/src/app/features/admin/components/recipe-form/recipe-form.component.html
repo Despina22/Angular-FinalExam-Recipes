@@ -1,7 +1,10 @@
-<div mat-dialog-container class="form-modal">
-  <h2 mat-dialog-title class="modal-title">{{ data.title }}</h2>
-  <form [formGroup]="recipeForm" (ngSubmit)="onCreate()">
-    <div mat-dialog-content class="form-modal-content">
+<div class="form-modal" [ngClass]="isModalForm ? '' : 'edit-form'">
+  <h2 class="modal-title">{{ isModalForm ? "New Recipe" : "Edit Recipe" }}</h2>
+  <form
+    [formGroup]="recipeForm"
+    (ngSubmit)="isModalForm ? onCreate() : onUpdate()"
+  >
+    <div class="form-modal-content">
       <div>
         <mat-form-field appearance="fill" class="form-input">
           <mat-label>Name</mat-label>
@@ -43,19 +46,21 @@
       <div>
         <mat-form-field appearance="fill" class="form-input">
           <mat-label>Video Url</mat-label>
-          <input matInput formControlName="videoUrl" />
+          <input matInput formControlName="youTubeLink" />
           <mat-error
             *ngIf="
-              recipeForm.controls['videoUrl'] | checkFormValidity : 'required'
+              recipeForm.controls['youTubeLink']
+                | checkFormValidity : 'required'
             "
             >Video Url is <strong>required</strong></mat-error
           >
           <mat-error
             *ngIf="
-              (recipeForm.controls['videoUrl']
+              (recipeForm.controls['youTubeLink']
                 | checkFormValidity : 'pattern') &&
               !(
-                recipeForm.controls['videoUrl'] | checkFormValidity : 'required'
+                recipeForm.controls['youTubeLink']
+                | checkFormValidity : 'required'
               )
             "
           >
@@ -121,16 +126,18 @@
       </div>
     </div>
 
-    <div mat-dialog-actions class="modal-actions">
+    <div class="modal-actions">
       <button
         mat-button
         type="submit"
         class="modal-btn"
-        [mat-dialog-close]="closeDialog"
         [disabled]="!recipeForm.valid"
       >
-        {{ data.button }}
+        {{ isModalForm ? "Create" : "Update" }}
       </button>
     </div>
   </form>
+</div>
+<div *ngIf="!isModalForm" class="recipe-btn-wrapper">
+  <button class="back-btn" routerLink="/admin">Go Back</button>
 </div>

@@ -1,18 +1,19 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
-import { AdminRoutingModule } from './admin-routing.module';
-import { RecipeTableComponent } from './components/recipe-table/recipe-table.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { EditRecipeComponent } from './components/edit-recipe/edit-recipe.component';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { ReactiveFormsModule } from '@angular/forms';
+import { AdminRoutingModule } from './admin-routing.module';
+import { RecipeTableComponent } from './components/recipe-table/recipe-table.component';
+import { RecipeFormComponent } from './components/recipe-form/recipe-form.component';
 
 @NgModule({
-  declarations: [RecipeTableComponent, EditRecipeComponent],
+  declarations: [RecipeTableComponent, RecipeFormComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,
@@ -20,6 +21,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatTableModule,
     MatFormFieldModule,
     MatInputModule,
+    MatDialogModule,
     ReactiveFormsModule,
     SharedModule,
   ],

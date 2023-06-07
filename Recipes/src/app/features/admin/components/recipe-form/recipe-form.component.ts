@@ -1,17 +1,20 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ActivatedRoute, Router } from '@angular/router';
 import { take } from 'rxjs';
+import { Recipe } from 'src/app/features/recipes/models/recipe.interface';
 import { RecipesService } from 'src/app/features/services/recipe/recipes.service';
 import { SnackbarMessageService } from 'src/app/shared/services/snackbar-message-service/snackbar-message.service';
 
 @Component({
   selector: 'app-form-modal',
-  templateUrl: './form-modal.component.html',
-  styleUrls: ['./form-modal.component.scss'],
+  templateUrl: './recipe-form.component.html',
+  styleUrls: ['./recipe-form.component.scss'],
 })
-export class FormModalComponent implements OnInit {
-  closeDialog: boolean = false;
+export class RecipeFormComponent implements OnInit {
+  isModalForm: boolean = true;
+  recipeId!: number;
+  recipe?: Recipe;
 
   recipeForm: FormGroup = new FormGroup({
     name: new FormControl('', [
@@ -23,7 +26,7 @@ export class FormModalComponent implements OnInit {
       Validators.required,
       Validators.pattern('^https?://.*$'),
     ]),
-    videoUrl: new FormControl('', [
+    youTubeLink: new FormControl('', [
       Validators.required,
       Validators.pattern(/^https?:\/\/(?:www\.)?youtube\.com\/.*$/),
     ]),
@@ -39,12 +42,20 @@ export class FormModalComponent implements OnInit {
   });
 
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: { title: string; button: string },
     private recipesService: RecipesService,
-    private snackbarMessageService: SnackbarMessageService
+    private snackbarMessageService: SnackbarMessageService,
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.recipeId = +this.route.snapshot.paramMap.get('recipeId')!;
+    this.isModalForm = !this.recipeId;
+
+    if (this.recipeId > 0) {
+      this.getRecipe();
+    }
+  }
 
   onCreate() {
     const recipe = {
@@ -61,7 +72,30 @@ export class FormModalComponent implements OnInit {
           'Successfully created recipe!!',
           'snack-bar-success-container'
         );
-        this.closeDialog = true;
+        this.router.navigate(['admin']);
       });
+  }
+
+  getRecipe() {
+    this.recipesService.getRecipeById(this.recipeId).subscribe((data) => {
+      this.recipe = data;
+      this.recipeForm.patchValue(this.recipe);
+    });
+  }
+
+  onUpdate() {
+    if (this.recipeForm.valid) {
+      const updatedRecipe = { ...this.recipe, ...this.recipeForm.value };
+      this.recipesService
+        .updateRecipe(updatedRecipe)
+        .pipe(take(1))
+        .subscribe(() => {
+          this.snackbarMessageService.showMessage(
+            'You successfully updated the recipe!!!',
+            'snack-bar-success-container'
+          );
+          this.router.navigate(['/admin']);
+        });
+    }
   }
 }

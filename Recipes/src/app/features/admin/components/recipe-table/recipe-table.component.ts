@@ -4,7 +4,8 @@ import { map, take } from 'rxjs';
 import { Recipe } from 'src/app/features/recipes/models/recipe.interface';
 import { RecipesService } from 'src/app/features/services/recipe/recipes.service';
 import { ConfirmDialogComponent } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
-import { FormModalComponent } from 'src/app/features/admin/components/form-modal/form-modal.component';
+import { Router } from '@angular/router';
+import { RecipeFormComponent } from '../recipe-form/recipe-form.component';
 
 @Component({
   selector: 'app-recipe-table',
@@ -25,7 +26,8 @@ export class RecipeTableComponent implements OnInit {
 
   constructor(
     private recipeService: RecipesService,
-    private modal: MatDialog
+    private modal: MatDialog,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -40,17 +42,7 @@ export class RecipeTableComponent implements OnInit {
   }
 
   openModal() {
-    this.modal.open(FormModalComponent, {
-      data: {
-        title: 'New Recipe',
-        button: 'Create',
-      },
-      position: { top: '40px' },
-    });
-  }
-
-  onEdit() {
-    console.log('yay  ediitt');
+    this.modal.open(RecipeFormComponent);
   }
 
   deleteRecipe(recipe: Recipe) {

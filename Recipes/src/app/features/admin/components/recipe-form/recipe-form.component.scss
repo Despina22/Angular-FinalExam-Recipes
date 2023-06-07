@@ -1,0 +1,56 @@
+.form-modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &.edit-form {
+    background-color: #f2e8cf;
+    margin: 40px 50px;
+    padding: 30px 0px;
+    color: #bc4749;
+
+    ::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+      background-color: #bc4749;
+    }
+  }
+
+  .form-input {
+    width: 350px;
+    margin: 10px;
+    color: #000;
+  }
+
+  .modal-actions {
+    display: flex;
+    justify-content: center;
+    .modal-btn {
+      background-color: #bc4749;
+      color: #f2e8cf;
+      font-size: 18px;
+      padding: 7px 15px;
+      border: none;
+      border-radius: 3px;
+    }
+  }
+}
+.recipe-btn-wrapper {
+  display: flex;
+  justify-content: center;
+
+  .back-btn {
+    font-size: 22px;
+    padding: 5px 15px;
+    margin-bottom: 30px;
+    background-color: #f2e8cf;
+    color: #bc4749;
+    border: 1.5px solid #bc4749;
+    border-radius: 3px;
+    box-shadow: 5px 5px 10px rgb(204, 197, 185, 0.8);
+
+    &:hover {
+      background-color: #bc4749;
+      color: #f2e8cf;
+    }
+  }
+}
