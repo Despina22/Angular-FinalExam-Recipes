@@ -1,9 +1,10 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { take } from 'rxjs';
 import { Recipe } from 'src/app/features/recipes/models/recipe.interface';
 import { RecipesService } from 'src/app/features/services/recipe/recipes.service';
+import { SnackbarMessageService } from 'src/app/shared/services/snackbar-message-service/snackbar-message.service';
 
 @Component({
   selector: 'app-edit-recipe',
@@ -42,7 +43,9 @@ export class EditRecipeComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private recipesService: RecipesService
+    private recipesService: RecipesService,
+    private snackbarMessageService: SnackbarMessageService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -51,9 +54,28 @@ export class EditRecipeComponent implements OnInit {
   }
 
   getRecipe() {
-    this.recipesService.getRecipeById(this.recipeId).subscribe((data) => {
-      this.recipe = data;
-      this.recipeForm.patchValue(this.recipe);
-    });
+    this.recipesService
+      .getRecipeById(this.recipeId)
+      .pipe(take(1))
+      .subscribe((data) => {
+        this.recipe = data;
+        this.recipeForm.patchValue(this.recipe);
+      });
+  }
+
+  onUpdate() {
+    if (this.recipeForm.valid) {
+      const updatedRecipe = { ...this.recipe, ...this.recipeForm.value };
+      this.recipesService
+        .updateRecipe(updatedRecipe)
+        .pipe(take(1))
+        .subscribe(() => {
+          this.snackbarMessageService.showMessage(
+            'You successfully updated the recipe!!!',
+            'snack-bar-success-container'
+          );
+          this.router.navigate(['/admin']);
+        });
+    }
   }
 }

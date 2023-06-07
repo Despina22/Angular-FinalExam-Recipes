@@ -126,6 +126,7 @@
     <div class="modal-actions">
       <button
         mat-button
+        (click)="onUpdate()"
         type="submit"
         class="modal-btn"
         [disabled]="!recipeForm.valid"
