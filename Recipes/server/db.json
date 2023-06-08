@@ -110,5 +110,20 @@
       "createdDate": "2020-08-28T12:27:35.238Z",
       "youTubeLink": "https://www.youtube.com/watch?v=rBz09o1DYZU"
     }
+  ],
+  "users": [
+    {
+      "email": "despina@yahoo.com",
+      "password": "$2a$10$J9Hhoc0asxn76hu7.2K23uDbZzurTWL77RJq7w.WJaVltjEf55tLi",
+      "firstName": "Despina",
+      "lastName": "Stankovska",
+      "phoneNumber": "+38978421036",
+      "country": "Serbia",
+      "city": "prielp",
+      "gender": "female",
+      "role": "moderator",
+      "createdAt": "2023-06-01T19:26:05.238Z",
+      "id": 1
+    }
   ]
 }

@@ -24,6 +24,8 @@ export class NavigationComponent implements OnInit {
       this.router.navigate(['/']);
     } else if (navigationLink.linkName === 'Admin') {
       this.router.navigate(['admin']);
+    } else if (navigationLink.linkName === 'Login') {
+      this.router.navigate(['auth/login']);
     }
   }
 }

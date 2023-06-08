@@ -1,0 +1,30 @@
+.login {
+  .input-element {
+    margin: 0px 10px;
+    width: 300px;
+  }
+
+  .label {
+    color: #bc4749;
+  }
+
+  ::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+    background-color: #fff;
+    color: #bc4749;
+    border-bottom: 2px solid #bc4749;
+  }
+
+  .card-action {
+    display: flex;
+    justify-content: center;
+
+    .login-btn {
+      font-size: 22px;
+      border: none;
+      padding: 8px 25px;
+      background-color: #bc4749;
+      color: #f2e8cf;
+      border-radius: 6px;
+    }
+  }
+}

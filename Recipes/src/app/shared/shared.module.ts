@@ -12,6 +12,7 @@ import { SnackbarComponent } from './components/snackbar/snackbar.component';
 import { StarRatingComponent } from './components/star-rating/star-rating.component';
 import { CheckFormValidityPipe } from './pipes/check-form-validity/check-form-validity.pipe';
 import { TruncatePipe } from './pipes/truncate/truncate.pipe';
+import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { TruncatePipe } from './pipes/truncate/truncate.pipe';
     CheckFormValidityPipe,
     SnackbarComponent,
     ConfirmDialogComponent,
+    LoadingSpinnerComponent,
   ],
   imports: [
     CommonModule,
@@ -37,6 +39,7 @@ import { TruncatePipe } from './pipes/truncate/truncate.pipe';
     StarRatingComponent,
     TruncatePipe,
     CheckFormValidityPipe,
+    LoadingSpinnerComponent,
   ],
 })
 export class SharedModule {}

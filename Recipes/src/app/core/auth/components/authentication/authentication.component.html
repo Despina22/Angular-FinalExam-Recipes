@@ -1,0 +1,39 @@
+<app-navigation></app-navigation>
+<div *ngIf="isLoading" class="loading-spinner">
+  <app-loading-spinner></app-loading-spinner>
+</div>
+<div class="authentication-content" *ngIf="!isLoading">
+  <mat-card
+    [ngClass]="isLoginForm ? 'card-content-login' : 'card-content-registration'"
+  >
+    <mat-card-header class="signin-header">
+      <mat-card-title
+        class="signin-title"
+        [ngClass]="isLoginForm ? 'login-title' : 'registration-title'"
+      >
+        {{ isLoginForm ? "Login" : "Registration" }}</mat-card-title
+      >
+    </mat-card-header>
+
+    <mat-card-content>
+      <ng-container *ngIf="isLoginForm">
+        <app-login (login)="onLogin($event)"></app-login>
+        <p class="switch-link">
+          Don't have an account?
+          <a (click)="toggleForm()">Sign Up</a>
+        </p>
+      </ng-container>
+
+      <ng-container *ngIf="!isLoginForm">
+        <app-registration
+          (registration)="onRegister($event)"
+        ></app-registration>
+        <p class="switch-link">
+          Already have an account?
+          <a (click)="toggleForm()">Sign In</a>
+        </p>
+      </ng-container>
+    </mat-card-content>
+  </mat-card>
+</div>
+<app-footer></app-footer>

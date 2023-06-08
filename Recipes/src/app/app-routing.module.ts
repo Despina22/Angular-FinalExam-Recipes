@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutRecipesComponent } from './core/layouts/components/layout-recipes/layout-recipes.component';
 import { LayoutAuthenticationComponent } from './core/layouts/components/layout-authentication/layout-authentication.component';
+import { LoginComponent } from './core/auth/components/login/login.component';
+import { AuthenticationComponent } from './core/auth/components/authentication/authentication.component';
 
 const routes: Routes = [
   {
@@ -25,7 +27,11 @@ const routes: Routes = [
       },
     ],
   },
-  { path: 'auth', component: LayoutAuthenticationComponent },
+  {
+    path: 'auth',
+    component: LayoutAuthenticationComponent,
+    children: [{ path: 'login', component: AuthenticationComponent }],
+  },
 ];
 
 @NgModule({
