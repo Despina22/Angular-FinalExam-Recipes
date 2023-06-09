@@ -1,15 +1,18 @@
 export interface UserLoginData {
+  accessToken: string;
   email: string;
   password: string;
-  accessToken: string;
+  confirmPassword?: string;
 }
 
 export interface User extends UserLoginData {
-  id: number;
-  firstName: string;
-  lastName: string;
-  country: string;
-  city: string;
-  role?: string;
-  createdAt: string;
+  user: {
+    id: number;
+    role?: string;
+    firstName: string;
+    lastName: string;
+    country: string;
+    city: string;
+    createdAt: string;
+  };
 }

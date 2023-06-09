@@ -5,8 +5,8 @@
 
   <ng-container *ngFor="let navigationLink of navigationLinks">
     <a
-      class="navigtion-link"
       class="navigation-link"
+      *ngIf="navigationLink.visible"
       (click)="navigation(navigationLink)"
       >{{ navigationLink.linkName }}</a
     >

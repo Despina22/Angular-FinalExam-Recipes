@@ -1,15 +1,18 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError, tap, throwError } from 'rxjs';
-import { User, UserLoginData } from 'src/app/core/models/user.interface';
+import { BehaviorSubject, Observable, catchError, tap, throwError } from 'rxjs';
+import { User } from 'src/app/core/models/user.interface';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
+  isAdmin$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  isLoggedIn$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
   private readonly userUrl = environment.baseApiUrl;
-  private readonly storageKey = 'logged_user';
+  private readonly storageKey: string = 'logged_user';
 
   constructor(private http: HttpClient) {}
 
@@ -19,22 +22,27 @@ export class AuthService {
       .pipe(catchError(this.handleError));
   }
 
-  userLogin(userData: UserLoginData): Observable<UserLoginData> {
-    return this.http.post<UserLoginData>(`${this.userUrl}login`, userData).pipe(
+  userLogin(userData: User): Observable<User> {
+    return this.http.post<User>(`${this.userUrl}login`, userData).pipe(
       tap((data) => {
         if (data) {
-          localStorage.setItem(
-            this.storageKey,
-            JSON.stringify(data.accessToken)
-          );
+          const user = {
+            accessToken: data.accessToken,
+            role: data.user.role,
+          };
+          localStorage.setItem(this.storageKey, JSON.stringify(user));
+          this.isAdmin$.next(data.user.role === 'admin');
+          this.isLoggedIn$.next(true);
         }
       }),
       catchError(this.handleError)
     );
   }
 
-  getAccessToken(): string {
-    return localStorage.getItem(this.storageKey)!;
+  logout() {
+    this.isAdmin$.next(false);
+    this.isLoggedIn$.next(false);
+    localStorage.removeItem(this.storageKey);
   }
 
   private handleError(errorResponse: HttpErrorResponse) {

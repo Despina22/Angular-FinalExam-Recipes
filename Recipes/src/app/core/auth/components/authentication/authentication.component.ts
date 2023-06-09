@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { take } from 'rxjs';
-import { User, UserLoginData } from 'src/app/core/models/user.interface';
+import { User } from 'src/app/core/models/user.interface';
 import { SnackbarMessageService } from 'src/app/shared/services/snackbar-message-service/snackbar-message.service';
 import { AuthService } from '../../services/auth-service/auth.service';
 
@@ -24,18 +24,22 @@ export class AuthenticationComponent {
     this.isLoginForm = !this.isLoginForm;
   }
 
-  onLogin(formData: UserLoginData) {
+  onLogin(formData: User) {
     this.isLoading = true;
     this.authService
       .userLogin(formData)
       .pipe(take(1))
       .subscribe(
-        () => {
+        (data) => {
           this.snackbarMessageService.showMessage(
             'You are successfully logged in!',
             'snack-bar-success-container'
           );
-          this.router.navigate(['/admin']);
+          if (data.user.role === 'admin') {
+            this.router.navigate(['admin']);
+          } else {
+            this.router.navigate(['/']);
+          }
         },
         (errorMessage) => {
           this.snackbarMessageService.showMessage(
@@ -48,8 +52,9 @@ export class AuthenticationComponent {
   }
 
   onRegister(formData: User) {
+    const { confirmPassword, ...userWithoutConfirmPassword } = formData;
     const user = {
-      ...formData,
+      ...userWithoutConfirmPassword,
       role: 'moderator',
       createdAt: new Date().toISOString(),
     };
