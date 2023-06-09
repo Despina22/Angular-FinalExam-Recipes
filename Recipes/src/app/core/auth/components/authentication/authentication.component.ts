@@ -52,9 +52,8 @@ export class AuthenticationComponent {
   }
 
   onRegister(formData: User) {
-    const { confirmPassword, ...userWithoutConfirmPassword } = formData;
     const user = {
-      ...userWithoutConfirmPassword,
+      ...formData,
       role: 'moderator',
       createdAt: new Date().toISOString(),
     };

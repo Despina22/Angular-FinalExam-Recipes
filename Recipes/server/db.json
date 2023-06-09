@@ -131,6 +131,16 @@
       "role": "moderator",
       "createdAt": "2023-06-09T13:13:01.143Z",
       "id": 2
+    },
+    {
+      "email": "despina@yahoo.com",
+      "password": "$2a$10$zzocC7.giLFI8wYV9TAC0OScTGYU5mpAtPgweNQSZIUI8XmjllE3a",
+      "fullName": "Despina Stankovska",
+      "country": "Serbia",
+      "gender": "female",
+      "role": "moderator",
+      "createdAt": "2023-06-09T18:02:31.714Z",
+      "id": 3
     }
   ]
 }
