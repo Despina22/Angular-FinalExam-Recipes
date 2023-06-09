@@ -113,17 +113,24 @@
   ],
   "users": [
     {
-      "email": "despina@yahoo.com",
-      "password": "$2a$10$J9Hhoc0asxn76hu7.2K23uDbZzurTWL77RJq7w.WJaVltjEf55tLi",
-      "firstName": "Despina",
-      "lastName": "Stankovska",
-      "phoneNumber": "+38978421036",
+      "email": "admin@orion.com",
+      "password": "$2a$10$A4thXfX9tjdCizs44TPhEOShLEENkSd2TQf8F2AL03FFaD/IRdvdy",
+      "fullName": "Admin Orion",
       "country": "Serbia",
-      "city": "prielp",
+      "gender": "male",
+      "role": "admin",
+      "createdAt": "2023-06-09T13:11:47.011Z",
+      "id": 1
+    },
+    {
+      "email": "moderator@orion.com",
+      "password": "$2a$10$yfHchh8XJmquc3rq89Ug6.gEr7wDP6w/NpTuEQ3BVhV.RdtgynfVu",
+      "fullName": "Moderator Orion",
+      "country": "Serbia",
       "gender": "female",
       "role": "moderator",
-      "createdAt": "2023-06-01T19:26:05.238Z",
-      "id": 1
+      "createdAt": "2023-06-09T13:13:01.143Z",
+      "id": 2
     }
   ]
 }

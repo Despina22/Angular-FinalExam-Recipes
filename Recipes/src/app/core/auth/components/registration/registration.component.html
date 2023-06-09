@@ -12,55 +12,29 @@
   >
     <div>
       <mat-form-field appearance="fill" class="input-element">
-        <mat-label class="label">First Name</mat-label>
-        <input matInput formControlName="firstName" placeholder="First name" />
+        <mat-label class="label">Full Name</mat-label>
+        <input matInput formControlName="fullName" placeholder="Full name" />
         <mat-error
           *ngIf="
-            registrationForm.controls['firstName']
+            registrationForm.controls['fullName']
               | checkFormValidity : 'required'
           "
-          >First name is <strong>required</strong></mat-error
+          >Full name is <strong>required</strong></mat-error
         >
         <mat-error
           *ngIf="
-            (registrationForm.controls['firstName']
+            (registrationForm.controls['fullName']
               | checkFormValidity : 'pattern') &&
             !(
-              registrationForm.controls['firstName']
+              registrationForm.controls['fullName']
               | checkFormValidity : 'required'
             )
           "
         >
-          First name must start with uppercase
+          Full name must start with uppercase
         </mat-error>
       </mat-form-field>
 
-      <mat-form-field appearance="fill" class="input-element">
-        <mat-label class="label">Last Name</mat-label>
-        <input matInput formControlName="lastName" placeholder="Last name" />
-        <mat-error
-          *ngIf="
-            registrationForm.controls['lastName']
-              | checkFormValidity : 'required'
-          "
-          >Last name is <strong>required</strong></mat-error
-        >
-        <mat-error
-          *ngIf="
-            (registrationForm.controls['lastName']
-              | checkFormValidity : 'pattern') &&
-            !(
-              registrationForm.controls['lastName']
-              | checkFormValidity : 'required'
-            )
-          "
-        >
-          Last name must start with uppercase
-        </mat-error>
-      </mat-form-field>
-    </div>
-
-    <div>
       <mat-form-field appearance="fill" class="input-element">
         <mat-label class="label">Enter your email</mat-label>
         <input matInput formControlName="email" placeholder="Email" />
@@ -83,7 +57,9 @@
           Please enter a valid email address
         </mat-error>
       </mat-form-field>
+    </div>
 
+    <div>
       <mat-form-field appearance="fill" class="input-element">
         <mat-label class="label">Country</mat-label>
         <input matInput formControlName="country" placeholder="Country" />
@@ -95,9 +71,7 @@
           >Country is <strong>required</strong></mat-error
         >
       </mat-form-field>
-    </div>
 
-    <div>
       <mat-form-field appearance="fill" class="input-element">
         <mat-label class="label">Enter your password</mat-label>
         <input
@@ -124,29 +98,6 @@
           "
         >
           Please enter a valid password
-        </mat-error>
-      </mat-form-field>
-
-      <mat-form-field appearance="fill" class="input-element">
-        <mat-label class="label">Confirm password</mat-label>
-        <input
-          matInput
-          formControlName="confirmPassword"
-          [type]="hide ? 'password' : 'text'"
-          placeholder="Confirm password"
-        />
-
-        <mat-error
-          *ngIf="
-            (registrationForm.controls['confirmPassword']
-              | checkFormValidity : 'passwordNotMatch') &&
-            !(
-              registrationForm.controls['password']
-              | checkFormValidity : 'required'
-            )
-          "
-        >
-          Confirm password does't match with password
         </mat-error>
       </mat-form-field>
     </div>

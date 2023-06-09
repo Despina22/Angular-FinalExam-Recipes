@@ -21,28 +21,20 @@ export class RegistrationComponent implements OnInit {
 
   private readonly nameValidators = [
     Validators.required,
-    Validators.pattern('^[A-Z][a-z]{2,50}$'),
+    Validators.pattern(/^[A-Z][A-Za-z0-9\s]*$/),
   ];
   private readonly requiredValidators = [Validators.required];
 
-  registrationForm: FormGroup = new FormGroup(
-    {
-      firstName: new FormControl('', this.nameValidators),
-      lastName: new FormControl('', this.nameValidators),
-      email: new FormControl('', [Validators.required, Validators.email]),
-      country: new FormControl('', this.requiredValidators),
-      password: new FormControl(null, [
-        Validators.required,
-        Validators.pattern(/^\w[a-zA-Z0-9.!@#$%^&*()_+\-=[\]{}|\\:;"'<>,.?]*$/),
-      ]),
-      confirmPassword: new FormControl(null, [
-        Validators.required,
-        Validators.pattern(/^\w[a-zA-Z0-9.!@#$%^&*()_+\-=[\]{}|\\:;"'<>,.?]*$/),
-      ]),
-      gender: new FormControl('', this.requiredValidators),
-    },
-    { validators: this.checkPasswords }
-  );
+  registrationForm: FormGroup = new FormGroup({
+    fullName: new FormControl('', this.nameValidators),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    country: new FormControl('', this.requiredValidators),
+    password: new FormControl(null, [
+      Validators.required,
+      Validators.pattern(/^\w[a-zA-Z0-9.!@#$%^&*()_+\-=[\]{}|\\:;"'<>,.?]*$/),
+    ]),
+    gender: new FormControl('', this.requiredValidators),
+  });
 
   constructor() {}
 
@@ -50,13 +42,6 @@ export class RegistrationComponent implements OnInit {
     this.registrationForm.valueChanges.subscribe(() => {
       this.updateFormProgress();
     });
-  }
-
-  checkPasswords(registerForm: AbstractControl) {
-    const password = registerForm.get('password')?.value;
-    const confirmPassword = registerForm.get('confirmPassword')?.value;
-
-    return password === confirmPassword ? null : { passwordNotMatch: true };
   }
 
   updateFormProgress(): void {
