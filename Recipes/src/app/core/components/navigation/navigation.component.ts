@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../auth/services/auth-service/auth.service';
 import { NavigationLink } from '../../models/navigation-link.interface';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
+import { SnackbarMessageService } from 'src/app/shared/services/snackbar-message-service/snackbar-message.service';
 
 @Component({
   selector: 'app-navigation',
@@ -16,7 +19,12 @@ export class NavigationComponent implements OnInit {
     { id: 4, linkName: 'Logout', visible: false },
   ];
 
-  constructor(private router: Router, private authService: AuthService) {}
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+    private snackbarMessageService: SnackbarMessageService,
+    private modal: MatDialog
+  ) {}
 
   ngOnInit(): void {
     this.linkVisibility();
@@ -58,8 +66,21 @@ export class NavigationComponent implements OnInit {
         this.router.navigate(['auth/login']);
         break;
       case 'Logout':
-        this.authService.logout();
-        this.router.navigate(['/']);
+        const confirmDialog = this.modal.open(ConfirmDialogComponent, {
+          data: { message: 'Are you sure you want to logout?' },
+          position: { top: '40px' },
+        });
+
+        confirmDialog.afterClosed().subscribe((result) => {
+          if (result) {
+            this.authService.logout();
+            this.snackbarMessageService.showMessage(
+              'You are logged out',
+              'snack-bar-success-container'
+            );
+            this.router.navigate(['/']);
+          }
+        });
     }
   }
 }

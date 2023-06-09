@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { map, take } from 'rxjs';
+import { take } from 'rxjs';
 import { Recipe } from 'src/app/features/recipes/models/recipe.interface';
 import { RecipesService } from 'src/app/features/services/recipe/recipes.service';
 import { ConfirmDialogComponent } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
-import { Router } from '@angular/router';
 import { RecipeFormComponent } from '../recipe-form/recipe-form.component';
 
 @Component({
@@ -26,8 +25,7 @@ export class RecipeTableComponent implements OnInit {
 
   constructor(
     private recipeService: RecipesService,
-    private modal: MatDialog,
-    private router: Router
+    private modal: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -47,10 +45,7 @@ export class RecipeTableComponent implements OnInit {
 
   deleteRecipe(recipe: Recipe) {
     const confirmDialog = this.modal.open(ConfirmDialogComponent, {
-      data: {
-        title: 'Confirm',
-        message: 'Are you sure you want to delete this item?',
-      },
+      data: { message: 'Are you sure you want to delete this item?' },
       position: { top: '40px' },
     });
 
