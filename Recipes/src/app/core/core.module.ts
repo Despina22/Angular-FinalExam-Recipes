@@ -18,6 +18,7 @@ import { RegistrationComponent } from './auth/components/registration/registrati
 import { MatRadioModule } from '@angular/material/radio';
 import { SharedModule } from '../shared/shared.module';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     LoginComponent,
     AuthenticationComponent,
     RegistrationComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     CommonModule,

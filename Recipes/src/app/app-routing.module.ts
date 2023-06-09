@@ -6,6 +6,7 @@ import { LoginComponent } from './core/auth/components/login/login.component';
 import { AuthenticationComponent } from './core/auth/components/authentication/authentication.component';
 import { AdminGuard } from './core/auth/guards/admin-guard/admin.guard';
 import { AuthGuard } from './core/auth/guards/auth-guard/auth.guard';
+import { PageNotFoundComponent } from './core/components/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,7 @@ const routes: Routes = [
     component: LayoutAuthenticationComponent,
     children: [{ path: 'login', component: AuthenticationComponent }],
   },
+  { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({
