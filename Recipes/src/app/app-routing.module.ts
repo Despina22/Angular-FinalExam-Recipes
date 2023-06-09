@@ -5,6 +5,7 @@ import { LayoutAuthenticationComponent } from './core/layouts/components/layout-
 import { LoginComponent } from './core/auth/components/login/login.component';
 import { AuthenticationComponent } from './core/auth/components/authentication/authentication.component';
 import { AdminGuard } from './core/auth/guards/admin-guard/admin.guard';
+import { AuthGuard } from './core/auth/guards/auth-guard/auth.guard';
 
 const routes: Routes = [
   {
@@ -31,6 +32,7 @@ const routes: Routes = [
   },
   {
     path: 'auth',
+    canActivate: [AuthGuard],
     component: LayoutAuthenticationComponent,
     children: [{ path: 'login', component: AuthenticationComponent }],
   },
