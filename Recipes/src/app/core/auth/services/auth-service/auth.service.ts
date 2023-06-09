@@ -39,6 +39,10 @@ export class AuthService {
     );
   }
 
+  isUserAdmin(): boolean {
+    return this.isAdmin$.getValue();
+  }
+
   logout() {
     this.isAdmin$.next(false);
     this.isLoggedIn$.next(false);

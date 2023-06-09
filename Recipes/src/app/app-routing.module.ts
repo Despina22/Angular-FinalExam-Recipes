@@ -4,6 +4,7 @@ import { LayoutRecipesComponent } from './core/layouts/components/layout-recipes
 import { LayoutAuthenticationComponent } from './core/layouts/components/layout-authentication/layout-authentication.component';
 import { LoginComponent } from './core/auth/components/login/login.component';
 import { AuthenticationComponent } from './core/auth/components/authentication/authentication.component';
+import { AdminGuard } from './core/auth/guards/admin-guard/admin.guard';
 
 const routes: Routes = [
   {
@@ -20,6 +21,7 @@ const routes: Routes = [
       },
       {
         path: 'admin',
+        canLoad: [AdminGuard],
         loadChildren: () =>
           import('../app/features/admin/admin.module').then(
             (module) => module.AdminModule
