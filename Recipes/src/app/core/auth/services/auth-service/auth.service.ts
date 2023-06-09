@@ -14,7 +14,9 @@ export class AuthService {
   private readonly userUrl = environment.baseApiUrl;
   private readonly storageKey: string = 'logged_user';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.isUserLoggedIn();
+  }
 
   userRegistration(user: User): Observable<User> {
     return this.http
@@ -37,6 +39,15 @@ export class AuthService {
       }),
       catchError(this.handleError)
     );
+  }
+
+  isUserLoggedIn() {
+    const storedUser = localStorage.getItem(this.storageKey);
+    if (storedUser) {
+      const user = JSON.parse(storedUser);
+      this.isAdmin$.next(user.role === 'admin');
+      this.isLoggedIn$.next(true);
+    }
   }
 
   isUserAdmin(): boolean {

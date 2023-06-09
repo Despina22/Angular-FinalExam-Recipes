@@ -20,7 +20,6 @@ export class NavigationComponent implements OnInit {
 
   ngOnInit(): void {
     this.linkVisibility();
-    this.authService.isUserAdmin();
   }
 
   linkVisibility() {

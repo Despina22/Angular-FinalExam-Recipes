@@ -23,6 +23,10 @@
     width: 100%;
     background-color: #f2e8cf;
 
+    td.mat-cell {
+      border-bottom: 1px solid #bc4749;
+    }
+
     .recipe-table-item {
       color: #bc4749;
     }
