@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { UserLoginData } from 'src/app/core/models/user.interface';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { User } from 'src/app/core/models/user.interface';
 
 @Component({
   selector: 'app-login',
@@ -8,8 +8,7 @@ import { UserLoginData } from 'src/app/core/models/user.interface';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  @Output() login: EventEmitter<UserLoginData> =
-    new EventEmitter<UserLoginData>();
+  @Output() login: EventEmitter<User> = new EventEmitter<User>();
   hide = true;
 
   loginForm: FormGroup = new FormGroup({
