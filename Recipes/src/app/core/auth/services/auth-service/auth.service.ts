@@ -30,6 +30,7 @@ export class AuthService {
         if (data) {
           const user = {
             accessToken: data.accessToken,
+            userId: data.user.id,
             role: data.user.role,
           };
           localStorage.setItem(this.storageKey, JSON.stringify(user));
@@ -58,6 +59,11 @@ export class AuthService {
     this.isAdmin$.next(false);
     this.isLoggedIn$.next(false);
     localStorage.removeItem(this.storageKey);
+  }
+
+  getUserId(): string {
+    const user = JSON.parse(localStorage.getItem(this.storageKey)!);
+    return user.userId;
   }
 
   private handleError(errorResponse: HttpErrorResponse) {
