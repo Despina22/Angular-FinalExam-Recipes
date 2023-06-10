@@ -1,21 +1,23 @@
+@import "../../../../assets/styles/variables";
+
 .wrapper {
-  background-color: #f2e8cf;
+  background-color: $primary-color;
   display: flex;
   justify-content: center;
   padding: 25px 0px;
-  border-top: 2px solid #bc4749;
+  border-top: 2px solid $pink-color;
 
   .footer {
     font-size: 30px;
-    color: #386641;
+    color: $dark-green-color;
     font-weight: 500;
     margin: 0px 25px;
   }
 
   .footer-btn {
-    background-color: #386641;
-    color: #f2e8cf;
-    border: 1px solid #bc4749;
+    background-color: $dark-green-color;
+    color: $primary-color;
+    border: 1px solid $pink-color;
     padding: 7px 10px;
     border-radius: 3px;
     font-weight: 500;

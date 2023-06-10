@@ -1,3 +1,5 @@
+@import "../../../../assets/styles/variables";
+
 .wrapper {
   width: 100vw;
   height: 100vh;
@@ -10,15 +12,15 @@
     font-size: 22px;
     padding: 5px 15px;
     margin-bottom: 30px;
-    background-color: #f2e8cf;
-    color: #bc4749;
-    border: 1.5px solid #bc4749;
+    background-color: $primary-color;
+    color: $pink-color;
+    border: 1.5px solid $pink-color;
     border-radius: 3px;
-    box-shadow: 5px 5px 10px rgb(204, 197, 185, 0.8);
+    box-shadow: 5px 5px 10px $card-shadow;
 
     &:hover {
-      background-color: #bc4749;
-      color: #f2e8cf;
+      background-color: $pink-color;
+      color: $primary-color;
     }
   }
 

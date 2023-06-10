@@ -1,3 +1,5 @@
+@import "../../../../../assets/styles/variables";
+
 .table-wrapper {
   width: 90vw;
   margin: 40px auto;
@@ -8,27 +10,27 @@
     .button {
       font-size: 20px;
       padding: 7px 10px;
-      background-color: #386641;
-      color: #f2e8cf;
+      background-color: $dark-green-color;
+      color: $primary-color;
       border-radius: 3px;
-      border: 2px solid #bc4749;
+      border: 2px solid $pink-color;
 
       &:hover {
-        background-color: #bc4749;
+        background-color: $pink-color;
       }
     }
   }
 
   .recipe-table {
     width: 100%;
-    background-color: #f2e8cf;
+    background-color: $primary-color;
 
     td.mat-cell {
-      border-bottom: 1px solid #bc4749;
+      border-bottom: 1px solid $pink-color;
     }
 
     .recipe-table-item {
-      color: #bc4749;
+      color: $pink-color;
     }
   }
 }

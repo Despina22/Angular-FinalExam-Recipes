@@ -1,3 +1,5 @@
+@import "../../../../assets/styles/variables";
+
 .lds-spinner {
   color: official;
   display: inline-block;
@@ -21,7 +23,7 @@
   width: 6px;
   height: 18px;
   border-radius: 20%;
-  background: #bc4749;
+  background: $pink-color;
 }
 .lds-spinner div:nth-child(1) {
   transform: rotate(0deg);

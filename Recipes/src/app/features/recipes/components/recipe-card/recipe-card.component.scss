@@ -1,3 +1,5 @@
+@import "../../../../../assets/styles/variables";
+
 :host {
   display: flex;
   justify-content: space-evenly;
@@ -5,16 +7,16 @@
 
   .recipe-card {
     max-width: 380px;
-    background-color: #f2e8cf;
-    color: #111d13;
-    box-shadow: 15px 15px 10px rgb(204, 197, 185, 0.8);
+    background-color: $primary-color;
+    color: $black-color;
+    box-shadow: 15px 15px 10px $card-shadow;
     margin-bottom: 20px;
 
     .recipe-card-header {
       display: flex;
       justify-content: center;
       margin: 10px;
-      border-bottom: 2px solid #bc4749;
+      border-bottom: 2px solid $pink-color;
       cursor: pointer;
 
       .recipe-card-title {

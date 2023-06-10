@@ -1,3 +1,5 @@
+@import "../../../../assets/styles/variables";
+
 .confirm-dialog {
   .dialog-content {
     font-size: 15px;
@@ -6,8 +8,8 @@
 
   .dialog-btn {
     font-size: 12px;
-    color: #f2e8cf;
-    background-color: #bc4749;
+    color: $primary-color;
+    background-color: $pink-color;
     text-transform: uppercase;
     border: none;
     border-radius: 3px;

@@ -1,15 +1,17 @@
+@import "../../../../../assets/styles/variables";
+
 :host {
   .wrapper {
     .recipe-card {
       max-width: 70vw;
-      background-color: #f2e8cf;
-      color: #111d13;
-      box-shadow: 15px 15px 10px rgb(204, 197, 185, 0.8);
+      background-color: $primary-color;
+      color: $black-color;
+      box-shadow: 15px 15px 10px $card-shadow;
       margin: 40px auto;
 
       .recipe-card-header {
         margin: 20px;
-        border-bottom: 2px solid #bc4749;
+        border-bottom: 2px solid $pink-color;
 
         .recipe-card-title {
           font-size: 20px;
@@ -35,15 +37,15 @@
       font-size: 22px;
       padding: 5px 15px;
       margin-bottom: 30px;
-      background-color: #f2e8cf;
-      color: #bc4749;
-      border: 1.5px solid #bc4749;
+      background-color: $primary-color;
+      color: $pink-color;
+      border: 1.5px solid $pink-color;
       border-radius: 3px;
-      box-shadow: 5px 5px 10px rgb(204, 197, 185, 0.8);
+      box-shadow: 5px 5px 10px $card-shadow;
 
       &:hover {
-        background-color: #bc4749;
-        color: #f2e8cf;
+        background-color: $pink-color;
+        color: $primary-color;
       }
     }
   }
@@ -54,7 +56,7 @@
     align-items: center;
     font-size: 45px;
     height: 50vh;
-    color: #bc4749;
+    color: $pink-color;
 
     .error-icon {
       font-size: 60px;

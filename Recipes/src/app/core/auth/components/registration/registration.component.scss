@@ -1,7 +1,9 @@
+@import "../../../../../assets/styles/variables";
+
 .registration {
   .form-progress-bar {
     margin: 0px 10px 15px;
-    color: #bc4749;
+    color: $pink-color;
   }
 
   .reservation-form {
@@ -11,12 +13,12 @@
     }
 
     .label {
-      color: #bc4749;
+      color: $pink-color;
     }
     ::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
-      background-color: #fff;
-      color: #bc4749;
-      border-bottom: 2px solid #bc4749;
+      background-color: $white-color;
+      color: $pink-color;
+      border-bottom: 2px solid $pink-color;
     }
 
     .form-radio-button {
@@ -25,7 +27,7 @@
       .radio-button-label {
         margin-right: 20px;
         font-weight: 500;
-        color: #bc4749;
+        color: $pink-color;
       }
 
       .radio-button {
@@ -50,8 +52,8 @@
       font-size: 20px;
       border: none;
       padding: 8px 25px;
-      background-color: #bc4749;
-      color: #f2e8cf;
+      background-color: $pink-color;
+      color: $primary-color;
       margin-bottom: 5px;
       border-radius: 6px;
       cursor: pointer;
