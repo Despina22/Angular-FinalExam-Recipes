@@ -1,10 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import {
-  AbstractControl,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from 'src/app/core/models/user.interface';
 
 @Component({
@@ -15,9 +10,8 @@ import { User } from 'src/app/core/models/user.interface';
 export class RegistrationComponent implements OnInit {
   @Output() registration: EventEmitter<User> = new EventEmitter<User>();
 
-  formProgress: number = 0;
   hide = true;
-  durationInSeconds = 5;
+  formProgress: number = 0;
 
   private readonly nameValidators = [
     Validators.required,

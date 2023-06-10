@@ -7,7 +7,9 @@
     class="recipe-card-header"
     [routerLink]="['recipe', recipe.id]"
   >
-    <mat-card-title class="recipe-card-title">{{ recipe.name }}</mat-card-title>
+    <mat-card-title class="recipe-card-title" [matTooltip]="recipe.name">{{
+      recipe.name
+    }}</mat-card-title>
   </mat-card-header>
 
   <a [href]="recipe.youTubeLink">

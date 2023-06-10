@@ -3,14 +3,9 @@
   <app-loading-spinner></app-loading-spinner>
 </div>
 <div class="authentication-content" *ngIf="!isLoading">
-  <mat-card
-    [ngClass]="isLoginForm ? 'card-content-login' : 'card-content-registration'"
-  >
-    <mat-card-header class="signin-header">
-      <mat-card-title
-        class="signin-title"
-        [ngClass]="isLoginForm ? 'login-title' : 'registration-title'"
-      >
+  <mat-card class="card-content">
+    <mat-card-header>
+      <mat-card-title class="title">
         {{ isLoginForm ? "Login" : "Registration" }}</mat-card-title
       >
     </mat-card-header>

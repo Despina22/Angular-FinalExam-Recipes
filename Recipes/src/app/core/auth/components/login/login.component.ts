@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from 'src/app/core/models/user.interface';
 
@@ -7,8 +7,9 @@ import { User } from 'src/app/core/models/user.interface';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   @Output() login: EventEmitter<User> = new EventEmitter<User>();
+
   hide = true;
 
   loginForm: FormGroup = new FormGroup({
@@ -20,8 +21,6 @@ export class LoginComponent implements OnInit {
   });
 
   constructor() {}
-
-  ngOnInit(): void {}
 
   onLogin() {
     if (this.loginForm.valid) {

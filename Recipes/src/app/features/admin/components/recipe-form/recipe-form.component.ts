@@ -72,6 +72,7 @@ export class RecipeFormComponent implements OnInit {
           'Successfully created recipe!!',
           'snack-bar-success-container'
         );
+
         this.router.navigate(['admin']);
       });
   }

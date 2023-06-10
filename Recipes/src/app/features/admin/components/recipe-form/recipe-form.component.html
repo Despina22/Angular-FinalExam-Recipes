@@ -1,5 +1,7 @@
 <div class="form-modal" [ngClass]="isModalForm ? '' : 'edit-form'">
-  <h2 class="modal-title">{{ isModalForm ? "New Recipe" : "Edit Recipe" }}</h2>
+  <h2 class="modal-title">
+    {{ isModalForm ? "New Recipe" : "Edit Recipe" }}
+  </h2>
   <form
     [formGroup]="recipeForm"
     (ngSubmit)="isModalForm ? onCreate() : onUpdate()"

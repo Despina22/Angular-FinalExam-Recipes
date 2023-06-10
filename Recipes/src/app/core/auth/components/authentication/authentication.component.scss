@@ -6,19 +6,19 @@
   justify-content: center;
   align-items: center;
   background: url("../../../../../assets/images/background-food.jpg");
+  background-size: cover;
 
-  .card-content-login {
-    // width: 40vw;
+  .card-content {
     color: $pink-color;
     background-color: $primary-color;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius: 10px;
+    border-radius: 15px;
     box-shadow: 0px 20px 30px $shadow-color;
 
-    .login-title {
+    .title {
       color: $pink-color;
       margin: 10px 0px 20px;
       font-size: 22px;
@@ -26,21 +26,10 @@
     }
   }
 
-  .card-content-registration {
-    background-color: $primary-color;
-    color: $pink-color;
-    background-size: cover;
-    border-radius: 15px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-
-    .registration-title {
-      margin: 10px 0px 20px;
-      font-size: 20px;
-      text-transform: uppercase;
-      color: $pink-color;
-    }
+  .switch-link {
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    cursor: pointer;
   }
 }

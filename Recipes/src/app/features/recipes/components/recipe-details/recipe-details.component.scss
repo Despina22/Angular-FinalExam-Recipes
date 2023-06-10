@@ -1,4 +1,5 @@
 @import "../../../../../assets/styles/variables";
+@import "../../../../../assets/styles/go-back-btn";
 
 :host {
   .wrapper {
@@ -30,24 +31,9 @@
     }
   }
   .recipe-btn-wrapper {
+    @include back-btn;
     display: flex;
     justify-content: center;
-
-    .back-btn {
-      font-size: 22px;
-      padding: 5px 15px;
-      margin-bottom: 30px;
-      background-color: $primary-color;
-      color: $pink-color;
-      border: 1.5px solid $pink-color;
-      border-radius: 3px;
-      box-shadow: 5px 5px 10px $card-shadow;
-
-      &:hover {
-        background-color: $pink-color;
-        color: $primary-color;
-      }
-    }
   }
   .error-wrapper {
     display: flex;

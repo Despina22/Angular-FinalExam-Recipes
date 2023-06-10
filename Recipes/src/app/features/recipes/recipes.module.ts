@@ -9,6 +9,7 @@ import { RecipesComponent } from './components/recipes/recipes.component';
 import { DurationColorDirective } from './directives/duration-color.directive';
 import { RecipesRoutingModule } from './recipes-routing.module';
 import { RecipeDetailsComponent } from './components/recipe-details/recipe-details.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { RecipeDetailsComponent } from './components/recipe-details/recipe-detai
     RecipesRoutingModule,
     MatCardModule,
     MatIconModule,
+    MatTooltipModule,
     SharedModule,
   ],
   exports: [RecipeCardComponent],

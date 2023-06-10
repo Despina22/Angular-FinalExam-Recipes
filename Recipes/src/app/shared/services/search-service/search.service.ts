@@ -9,6 +9,7 @@ import { environment } from 'src/environments/environment';
 })
 export class SearchService {
   searchValue$: Subject<string> = new Subject<string>();
+
   private readonly recipeUrl = `${environment.baseApiUrl}recipes`;
 
   constructor(private http: HttpClient) {}
