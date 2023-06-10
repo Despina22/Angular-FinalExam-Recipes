@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, catchError, tap, throwError } from 'rxjs';
 import { User } from 'src/app/core/models/user.interface';
 import { environment } from 'src/environments/environment';
+import { ErrorService } from '../error-service/error.service';
 
 @Injectable({
   providedIn: 'root',
@@ -14,14 +15,14 @@ export class AuthService {
   private readonly userUrl = environment.baseApiUrl;
   private readonly storageKey: string = 'logged_user';
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private errorService: ErrorService) {
     this.isUserLoggedIn();
   }
 
   userRegistration(user: User): Observable<User> {
     return this.http
       .post<User>(`${this.userUrl}register`, user)
-      .pipe(catchError(this.handleError));
+      .pipe(catchError(this.errorService.handleError));
   }
 
   userLogin(userData: User): Observable<User> {
@@ -33,12 +34,12 @@ export class AuthService {
             userId: data.user.id,
             role: data.user.role,
           };
+
           localStorage.setItem(this.storageKey, JSON.stringify(user));
-          this.isAdmin$.next(data.user.role === 'admin');
-          this.isLoggedIn$.next(true);
+          this.setAuthState(user);
         }
       }),
-      catchError(this.handleError)
+      catchError(this.errorService.handleError)
     );
   }
 
@@ -46,45 +47,31 @@ export class AuthService {
     const storedUser = localStorage.getItem(this.storageKey);
     if (storedUser) {
       const user = JSON.parse(storedUser);
-      this.isAdmin$.next(user.role === 'admin');
-      this.isLoggedIn$.next(true);
+
+      this.setAuthState(user);
     }
   }
 
-  isUserAdmin(): boolean {
-    return this.isAdmin$.getValue();
+  setAuthState(user?: any) {
+    let isLoggedIn = false;
+    let isAdmin = false;
+
+    if (user) {
+      isLoggedIn = true;
+      isAdmin = user.role === 'admin';
+    }
+
+    this.isAdmin$.next(isAdmin);
+    this.isLoggedIn$.next(isLoggedIn);
   }
 
   logout() {
-    this.isAdmin$.next(false);
-    this.isLoggedIn$.next(false);
+    this.setAuthState();
     localStorage.removeItem(this.storageKey);
   }
 
   getUserId(): string {
     const user = JSON.parse(localStorage.getItem(this.storageKey)!);
     return user.userId;
-  }
-
-  private handleError(errorResponse: HttpErrorResponse) {
-    let errorMessage = 'An error occurred';
-    if (!errorResponse.error) {
-      return throwError(errorMessage);
-    }
-    switch (errorResponse.error) {
-      case 'Password is too short':
-        errorMessage = 'Password is too short!!!';
-        break;
-      case 'Email already exists':
-        errorMessage = 'This email already exist!!!';
-        break;
-      case 'Cannot find user':
-        errorMessage = 'Your email or password are incorrect.';
-        break;
-      case 'Incorrect password':
-        errorMessage = 'Your email or password are incorrect.';
-        break;
-    }
-    return throwError(errorMessage);
   }
 }

@@ -9,11 +9,11 @@ export class AdminGuard implements CanLoad {
   constructor(private authService: AuthService, private router: Router) {}
 
   canLoad(): boolean {
-    if (this.authService.isUserAdmin()) {
+    if (this.authService.isAdmin$.getValue()) {
       return true;
-    } else {
-      this.router.navigate(['/']);
-      return false;
     }
+
+    this.router.navigate(['/']);
+    return false;
   }
 }
