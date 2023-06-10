@@ -26,3 +26,43 @@
     text-align: center;
   }
 }
+
+@media only screen and (max-width: 576px) {
+  .wrapper {
+    width: 600px;
+    height: 240px;
+
+    .header {
+      font-size: 35px;
+    }
+
+    .paragraph {
+      font-size: 10px;
+    }
+  }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 768px) {
+  .wrapper {
+    width: 800px;
+    height: 280px;
+
+    .header {
+      font-size: 37px;
+    }
+
+    .paragraph {
+      font-size: 12px;
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  .wrapper {
+    height: 380px;
+
+    .header {
+      font-size: 60px;
+    }
+  }
+}

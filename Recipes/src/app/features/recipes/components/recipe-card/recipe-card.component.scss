@@ -33,4 +33,22 @@
       max-height: 300px;
     }
   }
+
+  @media only screen and (max-width: 576px) {
+    .recipe-card {
+      max-width: 250px;
+
+      .recipe-card-header {
+        .recipe-card-title {
+          height: 20px;
+          font-size: 18px;
+        }
+      }
+
+      .recipe-img {
+        max-width: 220px;
+        max-height: 260px;
+      }
+    }
+  }
 }

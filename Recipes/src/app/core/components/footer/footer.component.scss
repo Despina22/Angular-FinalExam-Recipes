@@ -32,3 +32,33 @@
     }
   }
 }
+
+@media only screen and (max-width: 576px) {
+  .wrapper {
+    padding: 15px 0px 0px;
+
+    .footer-container {
+      margin-bottom: 5px;
+
+      .footer {
+        font-size: 12px;
+      }
+
+      .footer-btn {
+        padding: 0px 3px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 768px) {
+  .wrapper {
+    .footer-container {
+      margin-bottom: 5px;
+
+      .footer {
+        font-size: 20px;
+      }
+    }
+  }
+}
