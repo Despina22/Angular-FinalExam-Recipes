@@ -1,5 +1,12 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  OnInit,
+  Output,
+  OnDestroy,
+} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Subject, takeUntil } from 'rxjs';
 import { User } from 'src/app/core/models/user.interface';
 
 @Component({
@@ -7,12 +14,13 @@ import { User } from 'src/app/core/models/user.interface';
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.scss'],
 })
-export class RegistrationComponent implements OnInit {
+export class RegistrationComponent implements OnInit, OnDestroy {
   @Output() registration: EventEmitter<User> = new EventEmitter<User>();
 
-  hide = true;
+  hide: boolean = true;
   formProgress: number = 0;
 
+  private unsubscribe$: Subject<void> = new Subject<void>();
   private readonly nameValidators = [
     Validators.required,
     Validators.pattern(/^[A-Z][A-Za-z0-9\s]*$/),
@@ -30,15 +38,20 @@ export class RegistrationComponent implements OnInit {
     gender: new FormControl('', this.requiredValidators),
   });
 
-  constructor() {}
-
   ngOnInit(): void {
-    this.registrationForm.valueChanges.subscribe(() => {
-      this.updateFormProgress();
-    });
+    this.registrationForm.valueChanges
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe(() => {
+        this.updateFormProgress();
+      });
   }
 
-  updateFormProgress(): void {
+  onRegister() {
+    if (!this.registrationForm.valid) return;
+    this.registration.emit(this.registrationForm.value);
+  }
+
+  private updateFormProgress(): void {
     const formControls = this.registrationForm.controls;
     const totalControls = Object.keys(formControls).length;
 
@@ -50,8 +63,8 @@ export class RegistrationComponent implements OnInit {
     this.formProgress = (filledControls / totalControls) * 100;
   }
 
-  onRegister() {
-    if (!this.registrationForm.valid) return;
-    this.registration.emit(this.registrationForm.value);
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 }

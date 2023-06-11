@@ -32,13 +32,6 @@ export class RecipeTableComponent implements OnInit {
     this.getRecipes();
   }
 
-  getRecipes() {
-    this.recipeService
-      .getRecipes()
-      .pipe(take(1))
-      .subscribe((data) => (this.dataSource = data));
-  }
-
   openModal() {
     this.modal.open(RecipeFormComponent);
   }
@@ -66,5 +59,12 @@ export class RecipeTableComponent implements OnInit {
           );
       }
     });
+  }
+
+  private getRecipes() {
+    this.recipeService
+      .getRecipes()
+      .pipe(take(1))
+      .subscribe((data) => (this.dataSource = data));
   }
 }

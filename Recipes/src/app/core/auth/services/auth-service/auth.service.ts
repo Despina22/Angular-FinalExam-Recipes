@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, catchError, tap } from 'rxjs';
 import { User } from 'src/app/core/models/user.interface';
-import { environment } from 'src/environments/environment';
+import { environment } from '@env';
 import { ErrorService } from '../error-service/error.service';
 import { LocalStorage } from 'src/app/core/models/local-storage.interface';
 

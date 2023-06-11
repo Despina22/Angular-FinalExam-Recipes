@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Subject } from 'rxjs';
+import { Subject, take } from 'rxjs';
 import { SnackbarComponent } from '../../components/snackbar/snackbar.component';
 
 @Injectable({
@@ -20,9 +20,12 @@ export class SnackbarMessageService {
       duration: 3000,
     });
 
-    snackBarRef.afterDismissed().subscribe(() => {
-      this.snackbarMessageSubject$.next(null);
-    });
+    snackBarRef
+      .afterDismissed()
+      .pipe(take(1))
+      .subscribe(() => {
+        this.snackbarMessageSubject$.next(null);
+      });
 
     this.snackbarMessageSubject$.next(message);
   }

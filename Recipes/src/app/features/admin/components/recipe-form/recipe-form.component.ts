@@ -13,8 +13,6 @@ import { SnackbarMessageService } from 'src/app/shared/services/snackbar-message
 })
 export class RecipeFormComponent implements OnInit {
   isModalForm: boolean = true;
-  recipeId!: number;
-  recipe?: Recipe;
 
   recipeForm: FormGroup = new FormGroup({
     name: new FormControl('', [
@@ -40,6 +38,9 @@ export class RecipeFormComponent implements OnInit {
       Validators.pattern(/^(\d)+$/),
     ]),
   });
+
+  private recipeId!: number;
+  private recipe?: Recipe;
 
   constructor(
     private recipesService: RecipesService,
@@ -77,13 +78,6 @@ export class RecipeFormComponent implements OnInit {
       });
   }
 
-  getRecipe() {
-    this.recipesService.getRecipeById(this.recipeId).subscribe((data) => {
-      this.recipe = data;
-      this.recipeForm.patchValue(this.recipe);
-    });
-  }
-
   onUpdate() {
     if (this.recipeForm.valid) {
       const updatedRecipe = { ...this.recipe, ...this.recipeForm.value };
@@ -98,5 +92,15 @@ export class RecipeFormComponent implements OnInit {
           this.router.navigate(['/admin']);
         });
     }
+  }
+
+  private getRecipe() {
+    this.recipesService
+      .getRecipeById(this.recipeId)
+      .pipe(take(1))
+      .subscribe((data) => {
+        this.recipe = data;
+        this.recipeForm.patchValue(this.recipe);
+      });
   }
 }

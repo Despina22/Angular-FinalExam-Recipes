@@ -9,7 +9,7 @@ export class ErrorService {
   constructor() {}
 
   handleError(errorResponse: HttpErrorResponse) {
-    let errorMessage = 'An error occurred';
+    let errorMessage: string = 'An error occurred';
     if (!errorResponse.error) {
       return throwError(errorMessage);
     }

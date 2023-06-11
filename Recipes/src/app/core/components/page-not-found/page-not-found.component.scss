@@ -2,14 +2,14 @@
 @import "../../../../assets/styles/go-back-btn";
 
 .wrapper {
+  @include back-btn;
+
   width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  @include back-btn;
 
   .error-img {
     max-width: 500px;

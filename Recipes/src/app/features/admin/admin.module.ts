@@ -12,8 +12,9 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { RecipeTableComponent } from './components/recipe-table/recipe-table.component';
 import { RecipeFormComponent } from './components/recipe-form/recipe-form.component';
 
+const COMPONENTS = [RecipeTableComponent, RecipeFormComponent];
 @NgModule({
-  declarations: [RecipeTableComponent, RecipeFormComponent],
+  declarations: [...COMPONENTS],
   imports: [
     CommonModule,
     AdminRoutingModule,

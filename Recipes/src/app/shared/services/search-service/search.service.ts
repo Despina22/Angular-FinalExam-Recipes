@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { Recipe } from 'src/app/features/recipes/models/recipe.interface';
-import { environment } from 'src/environments/environment';
+import { environment } from '@env';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
 export class SearchService {
   searchValue$: Subject<string> = new Subject<string>();
 
-  private readonly recipeUrl = `${environment.baseApiUrl}recipes`;
+  private readonly recipeUrl: string = `${environment.baseApiUrl}recipes`;
 
   constructor(private http: HttpClient) {}
 

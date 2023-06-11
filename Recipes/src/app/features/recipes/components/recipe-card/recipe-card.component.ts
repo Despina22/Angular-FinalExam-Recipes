@@ -31,7 +31,7 @@ export class RecipeCardComponent implements OnInit, OnDestroy {
     this.searchedRecipe();
   }
 
-  getRecipes() {
+  private getRecipes() {
     this.recipesService
       .getRecipes()
       .pipe(take(1))
@@ -40,7 +40,7 @@ export class RecipeCardComponent implements OnInit, OnDestroy {
       });
   }
 
-  searchedRecipe() {
+  private searchedRecipe() {
     this.searchService.searchValue$
       .asObservable()
       .pipe(

@@ -10,7 +10,7 @@ import { User } from 'src/app/core/models/user.interface';
 export class LoginComponent {
   @Output() login: EventEmitter<User> = new EventEmitter<User>();
 
-  hide = true;
+  hide: boolean = true;
 
   loginForm: FormGroup = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -19,8 +19,6 @@ export class LoginComponent {
       Validators.pattern(/^\w[a-zA-Z0-9.!@#$%^&*()_+\-=[\]{}|\\:;"'<>,.?]*$/),
     ]),
   });
-
-  constructor() {}
 
   onLogin() {
     if (this.loginForm.valid) {
