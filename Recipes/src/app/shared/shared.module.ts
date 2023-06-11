@@ -13,6 +13,7 @@ import { StarRatingComponent } from './components/star-rating/star-rating.compon
 import { CheckFormValidityPipe } from './pipes/check-form-validity/check-form-validity.pipe';
 import { TruncatePipe } from './pipes/truncate/truncate.pipe';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
+import { FormErrorComponent } from './components/form-error/form-error.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { LoadingSpinnerComponent } from './components/loading-spinner/loading-sp
     SnackbarComponent,
     ConfirmDialogComponent,
     LoadingSpinnerComponent,
+    FormErrorComponent,
   ],
   imports: [
     CommonModule,
@@ -40,6 +42,7 @@ import { LoadingSpinnerComponent } from './components/loading-spinner/loading-sp
     TruncatePipe,
     CheckFormValidityPipe,
     LoadingSpinnerComponent,
+    FormErrorComponent,
   ],
 })
 export class SharedModule {}

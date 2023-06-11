@@ -14,48 +14,25 @@
       <mat-form-field appearance="fill" class="input-element">
         <mat-label class="label">Full Name</mat-label>
         <input matInput formControlName="fullName" placeholder="Full name" />
-        <mat-error
-          *ngIf="
-            registrationForm.controls['fullName']
-              | checkFormValidity : 'required'
-          "
-          >Full name is <strong>required</strong></mat-error
-        >
-        <mat-error
-          *ngIf="
-            (registrationForm.controls['fullName']
-              | checkFormValidity : 'pattern') &&
-            !(
-              registrationForm.controls['fullName']
-              | checkFormValidity : 'required'
-            )
-          "
-        >
-          Full name must start with uppercase
-        </mat-error>
+        <app-form-error
+          [control]="registrationForm.controls['fullName']"
+          [errorMessage]="{
+            required: 'Full name is required',
+            pattern: 'Full name must start with uppercase'
+          }"
+        ></app-form-error>
       </mat-form-field>
 
       <mat-form-field appearance="fill" class="input-element">
         <mat-label class="label">Enter your email</mat-label>
         <input matInput formControlName="email" placeholder="Email" />
-        <mat-error
-          *ngIf="
-            registrationForm.controls['email'] | checkFormValidity : 'required'
-          "
-          >Email is <strong>required</strong></mat-error
-        >
-        <mat-error
-          *ngIf="
-            (registrationForm.controls['email']
-              | checkFormValidity : 'email') &&
-            !(
-              registrationForm.controls['email']
-              | checkFormValidity : 'required'
-            )
-          "
-        >
-          Please enter a valid email address
-        </mat-error>
+        <app-form-error
+          [control]="registrationForm.controls['email']"
+          [errorMessage]="{
+            required: 'Email name is required',
+            pattern: 'Please enter a valid email address'
+          }"
+        ></app-form-error>
       </mat-form-field>
     </div>
 
@@ -63,13 +40,10 @@
       <mat-form-field appearance="fill" class="input-element">
         <mat-label class="label">Country</mat-label>
         <input matInput formControlName="country" placeholder="Country" />
-        <mat-error
-          *ngIf="
-            registrationForm.controls['country']
-              | checkFormValidity : 'required'
-          "
-          >Country is <strong>required</strong></mat-error
-        >
+        <app-form-error
+          [control]="registrationForm.controls['country']"
+          [errorMessage]="{ required: 'Country name is required' }"
+        ></app-form-error>
       </mat-form-field>
 
       <mat-form-field appearance="fill" class="input-element">
@@ -80,25 +54,13 @@
           [type]="hide ? 'password' : 'text'"
           placeholder="Password"
         />
-        <mat-error
-          *ngIf="
-            registrationForm.controls['password']
-              | checkFormValidity : 'required'
-          "
-          >Password is <strong>required</strong></mat-error
-        >
-        <mat-error
-          *ngIf="
-            (registrationForm.controls['password']
-              | checkFormValidity : 'pattern') &&
-            !(
-              registrationForm.controls['password']
-              | checkFormValidity : 'required'
-            )
-          "
-        >
-          Please enter a valid password
-        </mat-error>
+        <app-form-error
+          [control]="registrationForm.controls['password']"
+          [errorMessage]="{
+            required: 'Password name is required',
+            pattern: ' Please enter a valid password'
+          }"
+        ></app-form-error>
       </mat-form-field>
     </div>
 
