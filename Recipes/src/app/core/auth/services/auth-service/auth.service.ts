@@ -1,6 +1,6 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, catchError, tap, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, tap } from 'rxjs';
 import { User } from 'src/app/core/models/user.interface';
 import { environment } from 'src/environments/environment';
 import { ErrorService } from '../error-service/error.service';
