@@ -5,6 +5,7 @@ import { Recipe } from 'src/app/features/recipes/models/recipe.interface';
 import { RecipesService } from 'src/app/features/services/recipe/recipes.service';
 import { ConfirmDialogComponent } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
 import { RecipeFormComponent } from '../recipe-form/recipe-form.component';
+import { SnackbarMessageService } from 'src/app/shared/services/snackbar-message-service/snackbar-message.service';
 
 @Component({
   selector: 'app-recipe-table',
@@ -25,11 +26,13 @@ export class RecipeTableComponent implements OnInit {
 
   constructor(
     private recipeService: RecipesService,
-    private modal: MatDialog
+    private modal: MatDialog,
+    private snackbarMessageService: SnackbarMessageService
   ) {}
 
   ngOnInit(): void {
     this.getRecipes();
+    this.updateRecipeTable();
   }
 
   openModal() {
@@ -49,12 +52,19 @@ export class RecipeTableComponent implements OnInit {
           .pipe(take(1))
           .subscribe(
             () => {
+              this.snackbarMessageService.showMessage(
+                'Successfully delete recipe!!',
+                'snack-bar-success-container'
+              );
               this.dataSource = this.dataSource.filter(
-                (item: any) => item.id !== recipe.id
+                (recipeItem: Recipe) => recipeItem.id !== recipe.id
               );
             },
-            (error) => {
-              console.error('Error deleting recipe:', error);
+            () => {
+              this.snackbarMessageService.showMessage(
+                'Error deleting recipe',
+                'snack-bar-error-container'
+              );
             }
           );
       }
@@ -66,5 +76,14 @@ export class RecipeTableComponent implements OnInit {
       .getRecipes()
       .pipe(take(1))
       .subscribe((data) => (this.dataSource = data));
+  }
+
+  private updateRecipeTable(): void {
+    this.recipeService.updateData
+      .asObservable()
+      .pipe(take(1))
+      .subscribe(() => {
+        this.getRecipes();
+      });
   }
 }

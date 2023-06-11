@@ -11,6 +11,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { AdminRoutingModule } from './admin-routing.module';
 import { RecipeTableComponent } from './components/recipe-table/recipe-table.component';
 import { RecipeFormComponent } from './components/recipe-form/recipe-form.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 const COMPONENTS = [RecipeTableComponent, RecipeFormComponent];
 @NgModule({
@@ -23,6 +24,7 @@ const COMPONENTS = [RecipeTableComponent, RecipeFormComponent];
     MatFormFieldModule,
     MatInputModule,
     MatDialogModule,
+    MatTooltipModule,
     ReactiveFormsModule,
     SharedModule,
   ],

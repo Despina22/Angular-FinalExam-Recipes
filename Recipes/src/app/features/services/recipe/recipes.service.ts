@@ -2,12 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '@env';
 import { Recipe } from '../../recipes/models/recipe.interface';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RecipesService {
+  updateData: Subject<void> = new Subject<void>();
   private readonly recipeUrl = `${environment.baseApiUrl}recipes`;
 
   constructor(private http: HttpClient) {}
@@ -30,5 +31,9 @@ export class RecipesService {
 
   updateRecipe(recipe: Recipe): Observable<Recipe> {
     return this.http.patch<Recipe>(`${this.recipeUrl}/${recipe.id}`, recipe);
+  }
+
+  updateRecipeData(): void {
+    this.updateData.next();
   }
 }

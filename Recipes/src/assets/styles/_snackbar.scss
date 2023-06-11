@@ -1,0 +1,13 @@
+@mixin snackbar-style {
+  .snack-bar-error-container {
+    background-color: #bc4749;
+    color: #faf3e7;
+    font-size: 22px;
+  }
+
+  .snack-bar-success-container {
+    background-color: #386641;
+    color: #faf3e7;
+    font-size: 22px;
+  }
+}

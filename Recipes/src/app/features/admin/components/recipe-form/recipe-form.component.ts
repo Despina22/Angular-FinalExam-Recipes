@@ -13,6 +13,7 @@ import { SnackbarMessageService } from 'src/app/shared/services/snackbar-message
 })
 export class RecipeFormComponent implements OnInit {
   isModalForm: boolean = true;
+  closeDialog: boolean = false;
 
   recipeForm: FormGroup = new FormGroup({
     name: new FormControl('', [
@@ -74,6 +75,8 @@ export class RecipeFormComponent implements OnInit {
           'snack-bar-success-container'
         );
 
+        this.recipesService.updateRecipeData();
+        this.closeDialog = true;
         this.router.navigate(['admin']);
       });
   }

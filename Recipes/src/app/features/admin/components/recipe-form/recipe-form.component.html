@@ -8,8 +8,8 @@
   >
     <div class="form-modal-content">
       <div>
-        <mat-form-field appearance="fill" class="form-input">
-          <mat-label>Name</mat-label>
+        <mat-form-field appearance="fill" class="input-element">
+          <mat-label class="label">Name</mat-label>
           <input matInput formControlName="name" />
           <app-form-error
             [control]="recipeForm.controls['name']"
@@ -20,8 +20,8 @@
           ></app-form-error>
         </mat-form-field>
 
-        <mat-form-field appearance="fill" class="form-input">
-          <mat-label>Image</mat-label>
+        <mat-form-field appearance="fill" class="input-element">
+          <mat-label class="label">Image</mat-label>
           <input matInput formControlName="image" />
           <app-form-error
             [control]="recipeForm.controls['image']"
@@ -34,8 +34,8 @@
       </div>
 
       <div>
-        <mat-form-field appearance="fill" class="form-input">
-          <mat-label>Video Url</mat-label>
+        <mat-form-field appearance="fill" class="input-element">
+          <mat-label class="label">Video Url</mat-label>
           <input matInput formControlName="youTubeLink" />
           <app-form-error
             [control]="recipeForm.controls['youTubeLink']"
@@ -46,8 +46,8 @@
           ></app-form-error>
         </mat-form-field>
 
-        <mat-form-field appearance="fill" class="form-input">
-          <mat-label>Description</mat-label>
+        <mat-form-field appearance="fill" class="input-element">
+          <mat-label class="label">Description</mat-label>
           <textarea matInput formControlName="description"></textarea>
           <app-form-error
             [control]="recipeForm.controls['description']"
@@ -59,8 +59,8 @@
       </div>
 
       <div>
-        <mat-form-field appearance="fill" class="form-input">
-          <mat-label>Duration</mat-label>
+        <mat-form-field appearance="fill" class="input-element">
+          <mat-label class="label">Duration</mat-label>
 
           <input matInput formControlName="duration" />
           <app-form-error
@@ -72,8 +72,8 @@
           ></app-form-error>
         </mat-form-field>
 
-        <mat-form-field appearance="fill" class="form-input">
-          <mat-label>Stars</mat-label>
+        <mat-form-field appearance="fill" class="input-element">
+          <mat-label class="label">Stars</mat-label>
           <input matInput formControlName="stars" />
           <app-form-error
             [control]="recipeForm.controls['stars']"
@@ -86,14 +86,26 @@
       </div>
     </div>
 
-    <div class="modal-actions">
+    <div class="card-action">
       <button
+        *ngIf="isModalForm"
         mat-button
         type="submit"
-        class="modal-btn"
+        class="btn"
+        [mat-dialog-close]="closeDialog"
         [disabled]="!recipeForm.valid"
       >
-        {{ isModalForm ? "Create" : "Update" }}
+        Create
+      </button>
+
+      <button
+        *ngIf="!isModalForm"
+        mat-button
+        type="submit"
+        class="btn"
+        [disabled]="!recipeForm.valid"
+      >
+        Update
       </button>
     </div>
   </form>

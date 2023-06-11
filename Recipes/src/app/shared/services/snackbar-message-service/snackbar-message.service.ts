@@ -8,6 +8,7 @@ import { SnackbarComponent } from '../../components/snackbar/snackbar.component'
 })
 export class SnackbarMessageService {
   private snackbarMessageSubject$ = new Subject<string | null>();
+  private durationInSeconds: number = 4;
 
   constructor(private snackBar: MatSnackBar) {}
 
@@ -17,7 +18,7 @@ export class SnackbarMessageService {
       horizontalPosition: 'center',
       verticalPosition: 'top',
       panelClass: [stateClass],
-      duration: 3000,
+      duration: this.durationInSeconds * 1000,
     });
 
     snackBarRef

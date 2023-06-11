@@ -31,6 +31,10 @@
 
     .recipe-table-item {
       color: $pink-color;
+
+      .icon {
+        cursor: pointer;
+      }
     }
   }
 }
