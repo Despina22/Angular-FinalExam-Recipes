@@ -4,6 +4,7 @@ import { BehaviorSubject, Observable, catchError, tap } from 'rxjs';
 import { User } from 'src/app/core/models/user.interface';
 import { environment } from 'src/environments/environment';
 import { ErrorService } from '../error-service/error.service';
+import { LocalStorage } from 'src/app/core/models/local-storage.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -29,7 +30,7 @@ export class AuthService {
     return this.http.post<User>(`${this.userUrl}login`, userData).pipe(
       tap((data) => {
         if (data) {
-          const user = {
+          const user: LocalStorage = {
             accessToken: data.accessToken,
             userId: data.user.id,
             role: data.user.role,
@@ -43,26 +44,9 @@ export class AuthService {
     );
   }
 
-  isUserLoggedIn() {
-    const storedUser = localStorage.getItem(this.storageKey);
-    if (storedUser) {
-      const user = JSON.parse(storedUser);
-
-      this.setAuthState(user);
-    }
-  }
-
-  setAuthState(user?: any) {
-    let isLoggedIn = false;
-    let isAdmin = false;
-
-    if (user) {
-      isLoggedIn = true;
-      isAdmin = user.role === 'admin';
-    }
-
-    this.isAdmin$.next(isAdmin);
-    this.isLoggedIn$.next(isLoggedIn);
+  getUserId(): string {
+    const user = JSON.parse(localStorage.getItem(this.storageKey)!);
+    return user.userId;
   }
 
   logout() {
@@ -70,8 +54,25 @@ export class AuthService {
     localStorage.removeItem(this.storageKey);
   }
 
-  getUserId(): string {
-    const user = JSON.parse(localStorage.getItem(this.storageKey)!);
-    return user.userId;
+  private setAuthState(user?: LocalStorage): void {
+    let isLoggedIn = false;
+    let isAdmin = false;
+
+    if (user) {
+      isAdmin = user.role === 'admin';
+      isLoggedIn = true;
+    }
+
+    this.isAdmin$.next(isAdmin);
+    this.isLoggedIn$.next(isLoggedIn);
+  }
+
+  private isUserLoggedIn() {
+    const storedUser = localStorage.getItem(this.storageKey);
+    if (storedUser) {
+      const user = JSON.parse(storedUser);
+
+      this.setAuthState(user);
+    }
   }
 }
