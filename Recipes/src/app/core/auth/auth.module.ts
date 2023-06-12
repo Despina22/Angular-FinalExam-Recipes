@@ -12,6 +12,7 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { AuthenticationComponent } from './components/authentication/authentication.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
+import { ErrorService } from './services/error-service/error.service';
 
 const COMPONENTS = [
   LoginComponent,

@@ -6,27 +6,16 @@ import { throwError } from 'rxjs';
   providedIn: 'root',
 })
 export class ErrorService {
-  constructor() {}
-
   handleError(errorResponse: HttpErrorResponse) {
-    let errorMessage: string = 'An error occurred';
-    if (!errorResponse.error) {
-      return throwError(errorMessage);
-    }
-    switch (errorResponse.error) {
-      case 'Password is too short':
-        errorMessage = 'Password is too short!!!';
-        break;
-      case 'Email already exists':
-        errorMessage = 'This email already exist!!!';
-        break;
-      case 'Cannot find user':
-        errorMessage = 'Your email or password are incorrect.';
-        break;
-      case 'Incorrect password':
-        errorMessage = 'Your email or password are incorrect.';
-        break;
-    }
-    return throwError(errorMessage);
+    const errorMessages = new Map<string, string>([
+      ['Password is too short', 'Password is too short!'],
+      ['Email already exists', 'This email already exist!'],
+      ['Cannot find user', 'Your email or password are incorrect.'],
+      ['Incorrect password', 'Your email or password are incorrect.'],
+    ]);
+
+    const errorMessage: string =
+      errorMessages.get(errorResponse.error) || 'An error occurred.';
+    return throwError(() => errorMessage);
   }
 }
