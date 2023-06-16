@@ -4,6 +4,7 @@ import { take } from 'rxjs';
 import { User } from 'src/app/core/models/user.interface';
 import { SnackbarMessageService } from 'src/app/shared/services/snackbar-message-service/snackbar-message.service';
 import { AuthService } from '../../services/auth-service/auth.service';
+import { Role } from 'src/app/core/models/role.enum';
 
 @Component({
   selector: 'app-authentication',
@@ -35,7 +36,7 @@ export class AuthenticationComponent {
             'You are successfully logged in!',
             'snack-bar-success-container'
           );
-          if (data.user.role === 'admin') {
+          if (data.user.role === Role.ADMIN) {
             this.router.navigate(['admin']);
           } else {
             this.router.navigate(['/']);

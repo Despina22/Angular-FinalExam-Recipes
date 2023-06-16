@@ -5,6 +5,7 @@ import { User } from 'src/app/core/models/user.interface';
 import { environment } from '@env';
 import { ErrorService } from '../error-service/error.service';
 import { LocalStorage } from 'src/app/core/models/local-storage.interface';
+import { Role } from 'src/app/core/models/role.enum';
 
 @Injectable({
   providedIn: 'root',
@@ -59,7 +60,7 @@ export class AuthService {
     let isAdmin = false;
 
     if (user) {
-      isAdmin = user.role === 'admin';
+      isAdmin = user.role === Role.ADMIN;
       isLoggedIn = true;
     }
 

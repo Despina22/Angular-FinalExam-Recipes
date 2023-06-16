@@ -20,11 +20,11 @@ import { MatTooltipModule } from '@angular/material/tooltip';
   ],
   imports: [
     CommonModule,
+    SharedModule,
     RecipesRoutingModule,
     MatCardModule,
     MatIconModule,
     MatTooltipModule,
-    SharedModule,
   ],
   exports: [RecipeCardComponent],
 })

@@ -23,15 +23,15 @@ const COMPONENTS = [
   declarations: [...COMPONENTS],
   imports: [
     CommonModule,
-    AuthRoutingModule,
     CoreModule,
     SharedModule,
+    AuthRoutingModule,
+    ReactiveFormsModule,
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
     MatRadioModule,
     MatProgressBarModule,
-    ReactiveFormsModule,
   ],
 })
 export class AuthModule {}

@@ -18,6 +18,8 @@ const COMPONENTS = [RecipeTableComponent, RecipeFormComponent];
   declarations: [...COMPONENTS],
   imports: [
     CommonModule,
+    SharedModule,
+    ReactiveFormsModule,
     AdminRoutingModule,
     MatIconModule,
     MatTableModule,
@@ -25,8 +27,6 @@ const COMPONENTS = [RecipeTableComponent, RecipeFormComponent];
     MatInputModule,
     MatDialogModule,
     MatTooltipModule,
-    ReactiveFormsModule,
-    SharedModule,
   ],
 })
 export class AdminModule {}
