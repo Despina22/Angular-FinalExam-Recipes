@@ -12,7 +12,7 @@ export class DurationColorDirective implements OnInit {
     this.durationColor();
   }
 
-  private durationColor() {
+  private durationColor(): void {
     if (this.duration < 30) {
       this.setStyle('#a7c957');
     } else if (this.duration >= 30 && this.duration <= 60) {
@@ -22,7 +22,7 @@ export class DurationColorDirective implements OnInit {
     }
   }
 
-  setStyle(backgroundColor: string) {
+  private setStyle(backgroundColor: string): void {
     const style = { 'background-color': backgroundColor };
     Object.assign(this.elementRef.nativeElement.style, style);
   }

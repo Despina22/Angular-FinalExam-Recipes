@@ -24,7 +24,7 @@ export class RecipeDetailsComponent implements OnInit {
     this.getRecipeDetails();
   }
 
-  private getRecipeDetails() {
+  private getRecipeDetails(): void {
     this.recipe$ = this.recipesService.getRecipeById(this.recipeId);
   }
 }

@@ -9,6 +9,7 @@ import { Observable, Subject } from 'rxjs';
 })
 export class RecipesService {
   updateData: Subject<void> = new Subject<void>();
+
   private readonly recipeUrl = `${environment.baseApiUrl}recipes`;
 
   constructor(private http: HttpClient) {}

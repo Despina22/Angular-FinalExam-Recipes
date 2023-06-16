@@ -1,12 +1,13 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ErrorService {
-  handleError(errorResponse: HttpErrorResponse) {
+  handleError(errorResponse: HttpErrorResponse): Observable<never> {
     const errorMessages = new Map<string, string>([
       ['Password is too short', 'Password is too short!'],
       ['Email already exists', 'This email already exist!'],

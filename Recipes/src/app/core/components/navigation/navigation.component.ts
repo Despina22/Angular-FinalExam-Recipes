@@ -33,7 +33,7 @@ export class NavigationComponent implements OnInit, OnDestroy {
     this.linkVisibility();
   }
 
-  linkVisibility() {
+  linkVisibility(): void {
     this.authService.isAdmin$
       .asObservable()
       .pipe(takeUntil(this.unsubscribe$))
@@ -63,7 +63,7 @@ export class NavigationComponent implements OnInit, OnDestroy {
       });
   }
 
-  navigation(navigationLink: NavigationLink) {
+  navigation(navigationLink: NavigationLink): void {
     switch (navigationLink.linkName) {
       case 'Home':
         this.router.navigate(['/']);

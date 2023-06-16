@@ -15,11 +15,11 @@ export class ConfirmDialogComponent {
     public data: { message: string }
   ) {}
 
-  onYes() {
+  onYes(): void {
     this.dialogRef.close(true);
   }
 
-  onNo() {
+  onNo(): void {
     this.dialogRef.close(false);
   }
 }

@@ -36,7 +36,7 @@ export class RecipeFormComponent implements OnInit {
     ]),
     stars: new FormControl('', [
       Validators.required,
-      Validators.pattern(/^(\d)+$/),
+      Validators.pattern(/^[1-5]{1}$/),
     ]),
   });
 
@@ -59,7 +59,7 @@ export class RecipeFormComponent implements OnInit {
     }
   }
 
-  onCreate() {
+  onCreate(): void {
     const recipe = {
       ...this.recipeForm.value,
       createdDate: new Date().toISOString(),
@@ -81,7 +81,7 @@ export class RecipeFormComponent implements OnInit {
       });
   }
 
-  onUpdate() {
+  onUpdate(): void {
     if (this.recipeForm.valid) {
       const updatedRecipe = { ...this.recipe, ...this.recipeForm.value };
       this.recipesService
@@ -97,7 +97,7 @@ export class RecipeFormComponent implements OnInit {
     }
   }
 
-  private getRecipe() {
+  private getRecipe(): void {
     this.recipesService
       .getRecipeById(this.recipeId)
       .pipe(take(1))

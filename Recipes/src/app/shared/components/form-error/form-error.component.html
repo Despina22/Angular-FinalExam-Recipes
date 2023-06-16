@@ -1,8 +1,8 @@
 <ng-container *ngIf="control?.invalid && control?.touched">
   <mat-error *ngIf="control?.errors?.['required']" class="form-error">
-    {{ errorMessage.required }}
+    {{ errorMessage?.required }}
   </mat-error>
   <mat-error *ngIf="control?.errors?.['pattern']" class="form-error">
-    {{ errorMessage.pattern }}
+    {{ errorMessage?.pattern }}
   </mat-error>
 </ng-container>

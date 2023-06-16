@@ -25,7 +25,7 @@ export class AuthenticationComponent {
     this.isLoginForm = !this.isLoginForm;
   }
 
-  onLogin(formData: User) {
+  onLogin(formData: User): void {
     this.isLoading = true;
     this.authService
       .userLogin(formData)
@@ -52,7 +52,7 @@ export class AuthenticationComponent {
       });
   }
 
-  onRegister(formData: User) {
+  onRegister(formData: User): void {
     const user = {
       ...formData,
       role: 'moderator',

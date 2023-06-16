@@ -9,28 +9,12 @@
   padding: 25px 0px 0px;
   border-top: 2px solid $pink-color;
 
-  .footer-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 10px;
-
-    .footer {
-      font-family: "Playfair Display", serif;
-      font-size: 30px;
-      color: $dark-green-color;
-      font-weight: 500;
-      margin: 0px 25px;
-    }
-
-    .footer-btn {
-      background-color: $dark-green-color;
-      color: $primary-color;
-      border: 1px solid $pink-color;
-      padding: 7px 10px;
-      border-radius: 3px;
-      font-weight: 500;
-      cursor: pointer;
-    }
+  .footer {
+    font-family: "Playfair Display", serif;
+    font-size: 30px;
+    color: $dark-green-color;
+    font-weight: 500;
+    margin: 0px 25px 10px;
   }
 }
 
@@ -38,16 +22,8 @@
   .wrapper {
     padding: 15px 0px 0px;
 
-    .footer-container {
-      margin-bottom: 5px;
-
-      .footer {
-        font-size: 12px;
-      }
-
-      .footer-btn {
-        padding: 0px 3px;
-      }
+    .footer {
+      font-size: 12px;
     }
 
     p {
@@ -58,12 +34,8 @@
 
 @media only screen and (min-width: 576px) and (max-width: 768px) {
   .wrapper {
-    .footer-container {
-      margin-bottom: 5px;
-
-      .footer {
-        font-size: 20px;
-      }
+    .footer {
+      font-size: 20px;
     }
   }
 }

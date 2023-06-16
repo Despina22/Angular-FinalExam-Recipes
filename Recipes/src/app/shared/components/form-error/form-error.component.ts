@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { AbstractControl } from '@angular/forms';
+import { ErrorMessage } from '../../models/error-message.interface';
 
 @Component({
   selector: 'app-form-error',
@@ -8,5 +9,5 @@ import { AbstractControl } from '@angular/forms';
 })
 export class FormErrorComponent {
   @Input() control: AbstractControl | null = null;
-  @Input() errorMessage: any = {}; //TODO:
+  @Input() errorMessage?: ErrorMessage;
 }

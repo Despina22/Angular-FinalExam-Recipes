@@ -29,7 +29,7 @@ export class RegistrationComponent implements OnInit, OnDestroy {
 
   registrationForm: FormGroup = new FormGroup({
     fullName: new FormControl('', this.nameValidators),
-    email: new FormControl('', [Validators.required, Validators.email]),
+    email: new FormControl('', [...this.requiredValidators, Validators.email]),
     country: new FormControl('', this.requiredValidators),
     password: new FormControl(null, [
       Validators.required,
@@ -46,7 +46,7 @@ export class RegistrationComponent implements OnInit, OnDestroy {
       });
   }
 
-  onRegister() {
+  onRegister(): void {
     if (!this.registrationForm.valid) return;
     this.registration.emit(this.registrationForm.value);
   }

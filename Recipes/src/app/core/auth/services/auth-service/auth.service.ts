@@ -50,7 +50,7 @@ export class AuthService {
     return user.userId;
   }
 
-  logout() {
+  logout(): void {
     this.setAuthState();
     localStorage.removeItem(this.storageKey);
   }
@@ -68,7 +68,7 @@ export class AuthService {
     this.isLoggedIn$.next(isLoggedIn);
   }
 
-  private isUserLoggedIn() {
+  private isUserLoggedIn(): void {
     const storedUser = localStorage.getItem(this.storageKey);
     if (storedUser) {
       const user = JSON.parse(storedUser);

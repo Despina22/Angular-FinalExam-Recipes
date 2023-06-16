@@ -35,11 +35,11 @@ export class RecipeTableComponent implements OnInit {
     this.updateRecipeTable();
   }
 
-  openModal() {
+  openModal(): void {
     this.modal.open(RecipeFormComponent);
   }
 
-  deleteRecipe(recipe: Recipe) {
+  deleteRecipe(recipe: Recipe): void {
     const confirmDialog = this.modal.open(ConfirmDialogComponent, {
       data: { message: 'Are you sure you want to delete this item?' },
       position: { top: '40px' },
@@ -74,7 +74,7 @@ export class RecipeTableComponent implements OnInit {
       });
   }
 
-  private getRecipes() {
+  private getRecipes(): void {
     this.recipeService
       .getRecipes()
       .pipe(take(1))
