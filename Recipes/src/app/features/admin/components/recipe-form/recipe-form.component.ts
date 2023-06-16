@@ -60,10 +60,11 @@ export class RecipeFormComponent implements OnInit {
   }
 
   onCreate(): void {
-    const recipe = {
+    const recipe: Recipe = {
       ...this.recipeForm.value,
       createdDate: new Date().toISOString(),
     };
+    recipe.duration = +recipe.duration;
 
     if (!this.recipeForm.valid) return;
     this.recipesService

@@ -15,7 +15,8 @@
             [control]="recipeForm.controls['name']"
             [errorMessage]="{
               required: 'Recipe name is required',
-              pattern: 'Recipe name must start with uppercase'
+              pattern:
+                'Recipe name must start with uppercase and cant contain special characters'
             }"
           ></app-form-error>
         </mat-form-field>

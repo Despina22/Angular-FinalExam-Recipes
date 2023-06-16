@@ -75,25 +75,29 @@ export class NavigationComponent implements OnInit, OnDestroy {
         this.router.navigate(['auth/login']);
         break;
       case 'Logout':
-        const confirmDialog = this.modal.open(ConfirmDialogComponent, {
-          data: { message: 'Are you sure you want to logout?' },
-          position: { top: '40px' },
-        });
-
-        confirmDialog
-          .afterClosed()
-          .pipe(takeUntil(this.unsubscribe$))
-          .subscribe((result) => {
-            if (result) {
-              this.authService.logout();
-              this.snackbarMessageService.showMessage(
-                'You are logged out',
-                'snack-bar-success-container'
-              );
-              this.router.navigate(['/']);
-            }
-          });
+        this.logout();
     }
+  }
+
+  private logout() {
+    const confirmDialog = this.modal.open(ConfirmDialogComponent, {
+      data: { message: 'Are you sure you want to logout?' },
+      position: { top: '40px' },
+    });
+
+    confirmDialog
+      .afterClosed()
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe((result) => {
+        if (result) {
+          this.authService.logout();
+          this.snackbarMessageService.showMessage(
+            'You are logged out',
+            'snack-bar-success-container'
+          );
+          this.router.navigate(['/']);
+        }
+      });
   }
 
   ngOnDestroy(): void {
