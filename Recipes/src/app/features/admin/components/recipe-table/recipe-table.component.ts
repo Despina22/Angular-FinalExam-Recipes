@@ -45,30 +45,33 @@ export class RecipeTableComponent implements OnInit {
       position: { top: '40px' },
     });
 
-    confirmDialog.afterClosed().subscribe((result) => {
-      if (result) {
-        this.recipeService
-          .deleteRecipe(recipe)
-          .pipe(take(1))
-          .subscribe(
-            () => {
-              this.snackbarMessageService.showMessage(
-                'Successfully delete recipe!!',
-                'snack-bar-success-container'
-              );
-              this.dataSource = this.dataSource.filter(
-                (recipeItem: Recipe) => recipeItem.id !== recipe.id
-              );
-            },
-            () => {
-              this.snackbarMessageService.showMessage(
-                'Error deleting recipe',
-                'snack-bar-error-container'
-              );
-            }
-          );
-      }
-    });
+    confirmDialog
+      .afterClosed()
+      .pipe(take(1))
+      .subscribe((result) => {
+        if (result) {
+          this.recipeService
+            .deleteRecipe(recipe)
+            .pipe(take(1))
+            .subscribe({
+              next: () => {
+                this.snackbarMessageService.showMessage(
+                  'Successfully delete recipe!!',
+                  'snack-bar-success-container'
+                );
+                this.dataSource = this.dataSource.filter(
+                  (recipeItem: Recipe) => recipeItem.id !== recipe.id
+                );
+              },
+              error: () => {
+                this.snackbarMessageService.showMessage(
+                  'Error deleting recipe',
+                  'snack-bar-error-container'
+                );
+              },
+            });
+        }
+      });
   }
 
   private getRecipes() {

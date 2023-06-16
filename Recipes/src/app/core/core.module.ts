@@ -22,13 +22,7 @@ const COMPONENTS = [
 ];
 @NgModule({
   declarations: [...COMPONENTS],
-  imports: [
-    CommonModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatDialogModule,
-    RouterModule,
-  ],
+  imports: [CommonModule, MatToolbarModule, MatDialogModule, RouterModule],
   exports: [NavigationComponent, HeaderComponent, FooterComponent],
 })
 export class CoreModule {}
