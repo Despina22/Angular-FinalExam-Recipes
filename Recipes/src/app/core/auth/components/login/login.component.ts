@@ -21,8 +21,6 @@ export class LoginComponent {
   });
 
   onLogin(): void {
-    if (this.loginForm.valid) {
-      this.login.emit(this.loginForm.value);
-    }
+    this.login.emit(this.loginForm.value);
   }
 }

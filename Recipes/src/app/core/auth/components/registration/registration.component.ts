@@ -20,12 +20,12 @@ export class RegistrationComponent implements OnInit, OnDestroy {
   hide: boolean = true;
   formProgress: number = 0;
 
-  private unsubscribe$: Subject<void> = new Subject<void>();
   private readonly nameValidators = [
     Validators.required,
     Validators.pattern(/^[A-Z][A-Za-z0-9\s]*$/),
   ];
   private readonly requiredValidators = [Validators.required];
+  private unsubscribe$: Subject<void> = new Subject<void>();
 
   registrationForm: FormGroup = new FormGroup({
     fullName: new FormControl('', this.nameValidators),
@@ -39,11 +39,7 @@ export class RegistrationComponent implements OnInit, OnDestroy {
   });
 
   ngOnInit(): void {
-    this.registrationForm.valueChanges
-      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe(() => {
-        this.updateFormProgress();
-      });
+    this.formChanges();
   }
 
   onRegister(): void {
@@ -61,6 +57,14 @@ export class RegistrationComponent implements OnInit, OnDestroy {
     );
 
     this.formProgress = (filledControls / totalControls) * 100;
+  }
+
+  private formChanges() {
+    this.registrationForm.valueChanges
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe(() => {
+        this.updateFormProgress();
+      });
   }
 
   ngOnDestroy(): void {

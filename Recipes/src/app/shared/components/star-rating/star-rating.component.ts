@@ -8,8 +8,6 @@ import { Component, Input } from '@angular/core';
 export class StarRatingComponent {
   @Input() rating!: number;
 
-  constructor() {}
-
   get stars(): boolean[] {
     const filledStarsCount = Math.floor(this.rating);
     const stars = [];
