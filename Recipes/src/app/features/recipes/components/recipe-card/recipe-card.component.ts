@@ -18,6 +18,7 @@ import { SearchService } from 'src/app/shared/services/search-service/search.ser
 })
 export class RecipeCardComponent implements OnInit, OnDestroy {
   recipes?: Recipe[];
+  recipeNotFound: boolean = false;
 
   private unsubscribe$: Subject<void> = new Subject<void>();
 
@@ -50,7 +51,12 @@ export class RecipeCardComponent implements OnInit, OnDestroy {
         switchMap((term) => this.searchService.searchRecipe(term))
       )
       .subscribe((data) => {
-        this.recipes = data;
+        if (data.length) {
+          this.recipeNotFound = false;
+          this.recipes = data;
+        } else {
+          this.recipeNotFound = true;
+        }
       });
   }
 

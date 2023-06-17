@@ -1,29 +1,36 @@
-<mat-card
-  class="recipe-card"
-  *ngFor="let recipe of recipes"
-  [appDurationColor]="recipe.duration"
->
-  <mat-card-header
-    class="recipe-card-header"
-    [routerLink]="['recipe', recipe.id]"
+<ng-container *ngIf="!recipeNotFound">
+  <mat-card
+    class="recipe-card"
+    *ngFor="let recipe of recipes"
+    [appDurationColor]="recipe.duration"
   >
-    <mat-card-title class="recipe-card-title" [matTooltip]="recipe.name">{{
-      recipe.name
-    }}</mat-card-title>
-  </mat-card-header>
+    <mat-card-header
+      class="recipe-card-header"
+      [routerLink]="['recipe', recipe.id]"
+    >
+      <mat-card-title class="recipe-card-title" [matTooltip]="recipe.name">{{
+        recipe.name
+      }}</mat-card-title>
+    </mat-card-header>
 
-  <a [href]="recipe.youTubeLink">
-    <img [src]="recipe.image" [alt]="recipe.name" class="recipe-img" />
-  </a>
+    <a [href]="recipe.youTubeLink">
+      <img [src]="recipe.image" [alt]="recipe.name" class="recipe-img" />
+    </a>
 
-  <mat-card-content>
-    <p>
-      {{ recipe.description | truncate : 100 }}
-    </p>
-    <app-star-rating [rating]="recipe.stars"></app-star-rating>
-    <p>Duration: {{ recipe.duration }}min</p>
-    <p>
-      Created at: {{ recipe.createdDate | date : "EEEE, MMMM d, y, h:mm:ss a" }}
-    </p>
-  </mat-card-content>
-</mat-card>
+    <mat-card-content>
+      <p>
+        {{ recipe.description | truncate : 100 }}
+      </p>
+      <app-star-rating [rating]="recipe.stars"></app-star-rating>
+      <p>Duration: {{ recipe.duration }}min</p>
+      <p>
+        Created at:
+        {{ recipe.createdDate | date : "EEEE, MMMM d, y, h:mm:ss a" }}
+      </p>
+    </mat-card-content>
+  </mat-card>
+</ng-container>
+
+<ng-container *ngIf="recipeNotFound">
+  <p class="paragraph">This Recipe doesn't exist.Try again.</p>
+</ng-container>
