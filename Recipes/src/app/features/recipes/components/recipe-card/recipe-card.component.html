@@ -1,4 +1,4 @@
-<ng-container *ngIf="!recipeNotFound">
+<ng-container *ngIf="!recipeNotFound; else noRecipe">
   <mat-card
     class="recipe-card"
     *ngFor="let recipe of recipes"
@@ -31,6 +31,6 @@
   </mat-card>
 </ng-container>
 
-<ng-container *ngIf="recipeNotFound">
+<ng-template #noRecipe>
   <p class="paragraph">This Recipe doesn't exist.Try again.</p>
-</ng-container>
+</ng-template>

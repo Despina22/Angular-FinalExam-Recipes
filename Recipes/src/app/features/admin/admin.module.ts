@@ -2,16 +2,11 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
 import { ReactiveFormsModule } from '@angular/forms';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatIconModule } from '@angular/material/icon';
-import { MatInputModule } from '@angular/material/input';
-import { MatTableModule } from '@angular/material/table';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { AdminRoutingModule } from './admin-routing.module';
-import { RecipeTableComponent } from './components/recipe-table/recipe-table.component';
 import { RecipeFormComponent } from './components/recipe-form/recipe-form.component';
-import { MatTooltipModule } from '@angular/material/tooltip';
+import { RecipeTableComponent } from './components/recipe-table/recipe-table.component';
+import { MaterialAdminModule } from './material-imports-admin/material-admin.module';
 
 const COMPONENTS = [RecipeTableComponent, RecipeFormComponent];
 @NgModule({
@@ -21,12 +16,7 @@ const COMPONENTS = [RecipeTableComponent, RecipeFormComponent];
     SharedModule,
     ReactiveFormsModule,
     AdminRoutingModule,
-    MatIconModule,
-    MatTableModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatDialogModule,
-    MatTooltipModule,
+    MaterialAdminModule,
   ],
 })
 export class AdminModule {}
