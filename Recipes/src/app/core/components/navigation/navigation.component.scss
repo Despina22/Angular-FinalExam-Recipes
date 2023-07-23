@@ -2,14 +2,16 @@
 
 .navigation {
   background-color: $primary-color;
-  height: 85px;
+  // height: 60px;
   box-shadow: 0px 10px 20px $card-shadow;
   position: fixed;
-  z-index: 100;
+  z-index: 200;
+  padding: 15px;
 
   .logo-img {
-    margin: 10px 30px;
-    width: 330px;
+    margin: 40px 30px;
+    width: 250px;
+    height: 50px;
   }
 
   .example-spacer {
@@ -17,14 +19,15 @@
   }
 
   .navigation-link {
-    color: $pink-color;
+    font-size: 15px;
+    color: $dark-green-color;
     margin: 15px 15px 0px;
-    padding: 5px 10px;
+    padding: 0px 4px;
     border-radius: 3px;
     cursor: pointer;
 
     &:hover {
-      background-color: $pink-color;
+      background-color: $dark-green-color;
       color: $primary-color;
     }
   }

@@ -6,8 +6,8 @@
   flex-wrap: wrap;
 
   .recipe-card {
-    max-width: 380px;
-    background-color: $primary-color;
+    max-width: 250px;
+    background-color: $white-color;
     color: $black-color;
     box-shadow: 15px 15px 10px $card-shadow;
     margin-bottom: 20px;
@@ -20,9 +20,9 @@
       cursor: pointer;
 
       .recipe-card-title {
-        max-width: 300px;
+        max-width: 230px;
         height: 28px;
-        font-size: 25px;
+        font-size: 20px;
         text-overflow: ellipsis;
         white-space: nowrap;
         overflow: hidden;
@@ -30,8 +30,8 @@
     }
 
     .recipe-img {
-      max-width: 350px;
-      max-height: 300px;
+      max-width: 220px;
+      max-height: 150px;
     }
   }
 

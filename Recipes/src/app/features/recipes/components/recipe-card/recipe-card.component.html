@@ -1,9 +1,5 @@
 <ng-container *ngIf="!recipeNotFound; else noRecipe">
-  <mat-card
-    class="recipe-card"
-    *ngFor="let recipe of recipes"
-    [appDurationColor]="recipe.duration"
-  >
+  <mat-card class="recipe-card" *ngFor="let recipe of recipes">
     <mat-card-header
       class="recipe-card-header"
       [routerLink]="['recipe', recipe.id]"

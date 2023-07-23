@@ -15,6 +15,9 @@ import { Subject, takeUntil } from 'rxjs';
 export class NavigationComponent implements OnInit, OnDestroy {
   navigationLinks: NavigationLink[] = [
     { id: 1, linkName: 'Home', visible: true },
+    { id: 1, linkName: 'Menu', visible: true },
+    { id: 1, linkName: 'Service', visible: true },
+    { id: 1, linkName: 'About Us', visible: true },
     { id: 2, linkName: 'Admin', visible: false },
     { id: 3, linkName: 'Login', visible: false },
     { id: 4, linkName: 'Logout', visible: false },
