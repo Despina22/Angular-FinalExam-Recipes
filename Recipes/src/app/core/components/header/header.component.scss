@@ -2,7 +2,6 @@
 
 .wrapper {
   width: 100%;
-  // box-shadow: 0px 10px 20px $card-shadow;
   display: flex;
   justify-content: space-between;
 
@@ -189,40 +188,198 @@
 
 @media only screen and (max-width: 576px) {
   .wrapper {
-    width: 600px;
-    height: 240px;
-
     .header {
-      font-size: 35px;
+      max-width: 90vw;
+      margin: 40px auto;
+      padding: 80px 20px 0px 20px;
+      .header-text {
+        font-size: 35px;
+        line-height: 50px;
+      }
+
+      .paragraph-text {
+        font-size: 14px;
+      }
+
+      .main-chef {
+        .chef-name {
+          font-size: 22px;
+        }
+
+        .chef-img {
+          left: 70%;
+          top: 7%;
+          width: 130px;
+        }
+
+        .signature {
+          left: 55%;
+          top: 60%;
+        }
+      }
     }
 
-    .paragraph {
-      font-size: 10px;
+    .daily-menu {
+      display: none;
     }
   }
 }
 
 @media only screen and (min-width: 576px) and (max-width: 768px) {
   .wrapper {
-    width: 800px;
-    height: 280px;
-
     .header {
-      font-size: 37px;
+      max-width: 50vw;
+      padding: 140px 20px 0px 20px;
+      .header-text {
+        font-size: 15px;
+        line-height: 15px;
+
+        span {
+          width: 50px;
+        }
+      }
+
+      .paragraph-text {
+        font-size: 10px;
+        line-height: 12px;
+      }
+
+      .main-chef {
+        .chef-name {
+          font-size: 15px;
+        }
+
+        .chef-img {
+          width: 100px;
+          left: 67%;
+          top: 34%;
+        }
+
+        .signature {
+          width: 80px;
+        }
+      }
     }
 
-    .paragraph {
-      font-size: 12px;
+    .daily-menu {
+      width: 50vw;
+      height: 400px;
+      margin: 100px 15px 30px 20px;
+
+      .daily-menu-header {
+        font-size: 15px;
+        padding-top: 10px;
+        margin-top: 10px;
+      }
+
+      .daily-menu-paragraph {
+        font-size: 14px;
+      }
+
+      .wrapper-menu {
+        .gallery {
+          --s: 200px;
+        }
+      }
     }
   }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 992px) {
   .wrapper {
-    height: 380px;
-
     .header {
-      font-size: 60px;
+      max-width: 50vw;
+      padding: 140px 20px 0px 80px;
+      .header-text {
+        font-size: 25px;
+        line-height: 30px;
+
+        span {
+          width: 80px;
+        }
+      }
+
+      .paragraph-text {
+        font-size: 12px;
+        line-height: 15px;
+      }
+
+      .main-chef {
+        .chef-name {
+          font-size: 15px;
+        }
+
+        .chef-img {
+          width: 120px;
+        }
+
+        .signature {
+          width: 100px;
+        }
+      }
+    }
+
+    .daily-menu {
+      width: 35vw;
+      height: 450px;
+      margin: 100px 30px 30px 20px;
+
+      .daily-menu-header {
+        font-size: 20px;
+        padding-top: 10px;
+        margin-top: 10px;
+      }
+
+      .daily-menu-paragraph {
+        font-size: 16px;
+      }
+
+      .wrapper-menu {
+        .gallery {
+          --s: 240px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+  .wrapper {
+    .header {
+      max-width: 45vw;
+      padding: 140px 20px 0px 120px;
+      .header-text {
+        font-size: 30px;
+        line-height: 40px;
+
+        span {
+          width: 100px;
+        }
+      }
+
+      .main-chef {
+        .chef-img {
+          width: 150px;
+        }
+
+        .signature {
+          width: 120px;
+        }
+      }
+    }
+
+    .daily-menu {
+      margin: 100px 50px 50px 20px;
+
+      .daily-menu-header {
+        font-size: 30px;
+      }
+
+      .wrapper-menu {
+        .gallery {
+          --s: 300px;
+        }
+      }
     }
   }
 }

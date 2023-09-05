@@ -9,7 +9,7 @@
     "test": "ng test",
     "start:app": "ng serve --port=4200 --ssl --open",
     "start:db": "json-server --watch server/db.json -m ./node_modules/json-server-auth  --port=3000",
-    "start:all": " concurrently \"ng serve --port=4200 --ssl --open\" \"json-server --watch server/db.json -m ./node_modules/json-server-auth  --port=3000\""
+    "start:all": " concurrently \"ng serve --port=4000 --ssl --open\" \"json-server --watch server/db.json -m ./node_modules/json-server-auth  --port=3000\""
   },
   "private": true,
   "dependencies": {
