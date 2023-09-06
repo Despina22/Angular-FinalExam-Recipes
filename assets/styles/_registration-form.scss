@@ -1,0 +1,32 @@
+@mixin input-element {
+  .input-element {
+    margin: 0px 10px 10px;
+    width: 300px;
+    position: relative;
+
+    .label {
+      color: $pink-color;
+    }
+  }
+
+  ::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+    background-color: $white-color;
+    color: $black-color;
+    border-bottom: 2px solid $pink-color;
+  }
+
+  .card-action {
+    display: flex;
+    justify-content: center;
+
+    .btn {
+      font-size: 22px;
+      border: none;
+      padding: 8px 25px;
+      background-color: $pink-color;
+      margin: 5px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  }
+}
