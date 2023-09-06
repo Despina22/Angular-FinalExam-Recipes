@@ -19,6 +19,46 @@
       "duration": 30,
       "createdDate": "2023-06-12T14:36:05.238Z",
       "youTubeLink": "https://www.youtube.com/watch?v=v2WqcHH65NQ"
+    },
+    {
+      "id": 3,
+      "name": "Cannelloni with minced meat ",
+      "image": "https://media.istockphoto.com/id/502641884/photo/meat-cannelloni-sauce-bechamel.webp?b=1&s=170667a&w=0&k=20&c=vsQN5Jrn6z1JrEehDARKXIrIUmPISNQSAO3-_PfChqk=",
+      "description": "Cannelloni with minced meat is ready in a short time. The combination of minced meat, béchamel sauce, cheese and cannelloni baked in the oven creates a delicious dish. In original recipes, parmesan cheese is used but you can use your favorite cheese and add also your favorite spices like chili flakes and no salt and nutmeg powder in béchamel sauce. Create your own healthy oven-baked cannelloni recipe.",
+      "stars": 4.5,
+      "duration": 65,
+      "createdDate": "2023-06-02T14:36:05.238Z",
+      "youTubeLink": "https://www.youtube.com/watch?v=YPg32bnKxko"
+    },
+    {
+      "id": 4,
+      "name": "Light and Creamy Cheesecake",
+      "image": "https://media.istockphoto.com/id/515447912/photo/blueberry-cheesecake.webp?b=1&s=170667a&w=0&k=20&c=d3t0XhJXswp3RF-9enAzcZY0ghuoqvp-rRP7bLplp18=",
+      "description": "My creamy, fluffy, easy cheesecake recipe is perfectly sweet with a light and delicate texture, all wrapped in a crunchy Graham cracker and toasted pecan crust. Getting the perfect no crack bake is easier than you think and the end result is so beautiful it almost doesn’t need any topping!",
+      "stars": 5,
+      "duration": 40,
+      "createdDate": "2023-05-13T11:16:05.238Z",
+      "youTubeLink": "https://www.youtube.com/watch?v=ZYoYffXWiwk"
+    },
+    {
+      "id": 5,
+      "name": "Chickpea and Vegetable Casserole",
+      "image": "https://media.istockphoto.com/id/530943284/photo/baked-pasta-with-broccoli-cauliflower-cheese-and-bechamel-sauc.webp?b=1&s=170667a&w=0&k=20&c=apqbBJZOaoBKsoEclSPlV4wPZJVwiaCprBPt8sVC6uA=",
+      "description": "Sprinkle the eggplant with salt and leave for 20 minutes or until moisture begins to bead on the surface. Rinse well and pat dry.Heat a large heavy-based saucepan over medium–high heat. Add a splash of oil and cook the onion, carrot, capsicum and eggplant for 6–8 minutes, or until softened. Add the garlic, chilli, spices and harissa paste and cook for 3–4 minutes or until fragrant, stirring occasionally. Add the tomato paste and cook for 1 minute",
+      "stars": 2,
+      "duration": 25,
+      "createdDate": "2023-02-22T18:27:35.238Z",
+      "youTubeLink": "https://www.youtube.com/watch?v=GSjhVMJtbgo"
+    },
+    {
+      "id": 6,
+      "name": "Vanilla Cake",
+      "image": "https://media.istockphoto.com/id/1422975369/photo/vanila-cream-cake-with-apple-slices.webp?b=1&s=170667a&w=0&k=20&c=l7f5HlntI6xbz2kZDnJwSTB8CuB0aXINX19B0C96CAg=",
+      "description": "Learn how to make the best vanilla cake – this cake is soft, moist, rich and covered with amazing cream cheese vanilla frosting. This vanilla cake is the best birthday cake ever! Perfect birthday cake for boys and girls, for kids and adults. If you are looking for a recipe for vanilla cake with confetti sprinkles, this is the recipe for you!",
+      "stars": 3,
+      "duration": 30,
+      "createdDate": "2023-01-07T18:27:35.238Z",
+      "youTubeLink": "https://www.youtube.com/watch?v=qtlhdIfojmc"
     }
   ],
   "users": [
