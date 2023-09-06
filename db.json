@@ -59,6 +59,16 @@
       "duration": 30,
       "createdDate": "2023-01-07T18:27:35.238Z",
       "youTubeLink": "https://www.youtube.com/watch?v=qtlhdIfojmc"
+    },
+    {
+      "id": 7,
+      "name": "Homemade Ice Cream",
+      "image": "https://media.istockphoto.com/id/1395380883/photo/caramel-ice-cream-with-topping.webp?b=1&s=170667a&w=0&k=20&c=bKC5Sqg-JZC3tgQQVW319ojJqapVFQWxcyBxsiezJpc=",
+      "description": "We don't want to brag, but as far as vanilla ice cream recipes go, this one is the best. And with only four ingredients, it just might be the easiest, too. No ice cream maker? No problem. Just follow the directions below to learn how to make homemade ice cream by hand. It's the perfect base for our best ice cream sundae ideas, too.",
+      "stars": 5,
+      "duration": 10,
+      "createdDate": "2023-06-20T18:27:35.238Z",
+      "youTubeLink": "https://www.youtube.com/watch?v=DLOSxj7NpZ4"
     }
   ],
   "users": [
