@@ -46,7 +46,7 @@ export class RecipeCardComponent implements OnInit, OnDestroy {
       .asObservable()
       .pipe(
         takeUntil(this.unsubscribe$),
-        debounceTime(3500),
+        debounceTime(500),
         distinctUntilChanged(),
         switchMap((term) => this.searchService.searchRecipe(term))
       )

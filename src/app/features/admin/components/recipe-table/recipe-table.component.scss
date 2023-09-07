@@ -25,7 +25,7 @@
     width: 100%;
     background-color: $white-color;
 
-    td.mat-cell {
+    td.recipe-table-item {
       border-bottom: 1px solid $pink-color;
     }
 
@@ -34,6 +34,23 @@
 
       .icon {
         cursor: pointer;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 568px) {
+  .recipe-table {
+    border: 0;
+    vertical-align: middle;
+
+    .recipe-table-item {
+      .stars {
+        display: none;
+      }
+
+      .date-created {
+        display: none;
       }
     }
   }

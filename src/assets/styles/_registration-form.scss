@@ -29,4 +29,11 @@
       cursor: pointer;
     }
   }
+
+  @media only screen and (max-width: 576px) {
+    ::ng-deep .mat-form-field-wrapper {
+      width: 260px;
+      margin: 0 auto;
+    }
+  }
 }
